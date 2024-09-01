@@ -89,7 +89,7 @@ base calling step is performing directly after the sequencer machine output it�
 *we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from Sequence Read Archive(SRA) maintained by National Center for Biotechnology information (NCBI), for SRA-toolkit downloading, run this in your terminal;
 
 ## Installation
-    SRA-toolkit downloading
+    #SRA-toolkit downloading
     wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.1.1-ubuntu64.tar.gz
 
     #Extract toolkit
@@ -101,11 +101,9 @@ base calling step is performing directly after the sequencer machine output it�
     #Reload the shell configuration
     source ~/.bashrc
 
-**Downloading FASTQ file**
-
+*Downloading FASTQ file*
     to be well-organized, create the directory "fastqs" and download the file, run this in your terminal;
 
-    ```sh
     #make new directory 
     mkdir fastqs
 
@@ -122,36 +120,7 @@ base calling step is performing directly after the sequencer machine output it�
     gzip -d SRR030834.fastq.gz
 
 
-**Data processing and formatting**
-After downloading FASTQ file, we will create tabular file form FASTQ file and this tabulation faciliting several operations such as;
-    *make the data straightforward and human-readable summary for interpretation and analysis
-    *enable easy calculation of various statistics, filtering out the duplicates, extracting read ID’s and sequences 
-    *assist in the implementation of filtering and trimming algorithms and improve downstream analysis aaccuracy
-    and will make temporary files (.tmp) as they facilitate in data manipulation, transformation, and formatting without modify the original input files
-
-    ```sh
-    #for tabulation, this command will stor the result in new file called "SRR030834_tab.txt"
-    cat SRR030834.fastq | paste - - - - > SRR030834_tab.txt
-
-    #extracting the IDs and sequence from "SRR030834_tab.txt" and save it in SRR030834_seq.txt
-    awk ‘{print $1 “\t” $4}’ SRR030834_tab.txt > SRR030834_seq.txt
-
-    #Converts each read in the FASTQ file into a single line with columns separated by tabs, stored in "SRR030834_tab.tmp"
-    cat SRR030834.fastq | paste - - - - > SRR030834_tab.tmp
-
-    #Extracts specific columns from SRR030834_tab.tmp, removes @ characters, and stores the result in SRR030834_seq.tmp
-    awk '{print $1 "\t" $4}' SRR030834_tab.tmp | sed 's/@//g' > SRR030834_seq.tmp
-
-    #Prepends ">" to the beginning of each line in "SRR030834_seq.tmp"
-    sed -i 's/^/>/' SRR030834_seq.tmp
-
-    #Creates "SRR030834.fasta" with headers starting with ">" followed by sequences from "SRR030834_seq.tmp"
-    awk '{print ">" $1 "\n" $2}' SRR030834_seq.tmp > SRR030834.fasta
-
-    #emove Temporary Files (*.tmp), leaves only FASTA file
-    rm *.tmp
-
-**Post-Sequencing quality**
+*Post-Sequencing quality*
 
 *Post-sequence quality check must be performed to assess the read quality to ensure that there are no back-ground noises, the data looks good and there is no biases leads to inacurrate results. FASTQC is the most common programm use to check the quality of the sequence it is generate summary and simple graphical reports that show an overall idea about the quality of the raw data
 
@@ -159,39 +128,39 @@ After downloading FASTQ file, we will create tabular file form FASTQ file and th
    ### downloading fastqc tool
         wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.0.zip
 
-   ### decompress the zipped file with unzip
+       #decompress the zipped file with unzip
        fastqc_v0.12.0.zip
 
-   ### navigate to FaSTQC directory   
+       #navigate to FaSTQC directory   
        cd FastQC
 
-   ### to make "fastqc" executable
+       #to make "fastqc" executable
        chmod 755 fastqc
 
-   ### copen ".bashrc" file (or any text editor) to add fastqc to the path
+       #copen ".bashrc" file (or any text editor) to add fastqc to the path
        nano ~/.bashrc
 
-   ### add the path at the bottom of the file and replace this "/home/mypath/FastQC" with the actual path where the fastqc file is located then save the changes and exit from text editor
+       #add the path at the bottom of the file and replace this "/home/mypath/FastQC" with the actual path where the fastqc file is located then save the changes and exit from text editor
        export PATH=$PATH:/home/mypath/FastQC
 
-   ### apply the changes
-      source ~/.bashrc
+       #apply the changes
+       source ~/.bashrc
 
-   ### for testing the fastqc, if the path set correctly, it will show help instructions
+       #for testing the fastqc, if the path set correctly, it will show help instructions
        fasqc -h
 
-   #quality control
-   fastqc SRR030834.fastq
+       #quality control
+       fastqc SRR030834.fastq
 
-    *FastQC will generate a .html file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
+## FastQC will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
 
-        - Per base sequence quality: this ia show box plots of the quality distributions on each position across all bases of the reads, the background graph is divided into three regions representing the quality score, the green region (Q>20) are verry good, the orange region (20<Q<28) are acceptable, the red region (Q<20) are poor, in our case, we have sequence read’s score less than 20 
+        *Per base sequence quality: this ia show box plots of the quality distributions on each position across all bases of the reads, the background graph is divided into three regions representing the quality score, the green region (Q>20) are verry good, the orange region (20<Q<28) are acceptable, the red region (Q<20) are poor, in our case, we have sequence read’s score less than 20 
 
-        - Per sequence quality score: heatmap shows the quality score across different tiles of the sequencing chip with coloring code indicating the QS the colors ranges from green(high quality) to red(low quality), if there are low quality score thats because of physical defetcs, issues with the sequencing chemistry or problem with sample preparation, so it should be filtered out.
+        *Per sequence quality score: heatmap shows the quality score across different tiles of the sequencing chip with coloring code indicating the QS the colors ranges from green(high quality) to red(lowquality), if there are low quality score thats because of physical defetcs, issues with the sequencing chemistry or problem with sample preparation, so it should be filtered out.
 
-        - per base sequence content: provide detailed view of the nucleotides compositions at each base position and this identify if there any biases in base position, there are four colored lines representing the persentage of each base " A in green, T in red, G in black, and C in blue " it will be a good read if the lines are relatively flat to each other, in our case the per base sequence content have warning sing that should be filtered.
+        *per base sequence content: provide detailed view of the nucleotides compositions at each base position and this identify if there any biases in base position, there are four colored lines representing the persentage of each base " A in green, T in red, G in black, and C in blue " it will be a good read if the lines are relatively flat to each other, in our case the per base sequence content have warning sing that should be filtered.
 
-        - Per sequence GC content: we have two curves, blue curve that represent the normal distribution of the GC content in the sequence reads, and the purple curve represents the up-normal distribution of the GC content.
+        *Per sequence GC content: we have two curves, blue curve that represent the normal distribution of the GC content in the sequence reads, and the purple curve represents the up-normal distribution of the GC content.
 
         - Sequence duplication levels: high sequence duplication level indicating issues with PCR amplification biase or adapter containation.
 
@@ -199,15 +168,9 @@ After downloading FASTQ file, we will create tabular file form FASTQ file and th
 
     After making FastQC report, we notice that our data need to be filtered or trimming step.
 
-** Trimmig with fastp **
+*Trimmig with fastp*
 
-    ```sh
-    #put bellow the installations steps and explanations for steps
-
-
-
-    #use fastp tool for trimming our data, this step is made in new folder called(single-ends) holds only SRR030834.fastq file 
-    fastp --overrepresentation_analysis --cut_right --thread 2 --html SRR030834_trimmed_report.html --json SRR030834_trimmed_report.json -i SRR030834.fastq -o SRR030834_trimmed.fastq
+  
 
     #run fastqc on the trimmed result file, which will result HTML report
     fastqc SRR030834_trimmed.fastq
