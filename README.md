@@ -1,5 +1,5 @@
 # NGS-Pipeline
-# Next generation sequencing workflow pipline Documentation
+Next generation sequencing workflow pipline Documentation
 
 ## Intorduction
 this documentation outlines the steps involved in NGS analysis workflow from data acquisition to final visualization and interpretation step by step.
