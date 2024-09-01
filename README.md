@@ -1,14 +1,14 @@
 # NGS-Pipeline
-#Next generation sequencing workflow pipline Documentation
+# Next generation sequencing workflow pipline Documentation
 
-##Intorduction
+## Intorduction
 this documentation outlines the steps involved in NGS analysis workflow from data acquisition to final visualization and interpretation step by step.
 
-##Next generation sequencing with definitions and file formats
+## Next generation sequencing with definitions and file formats
 
 NGS it is a technology for determining the sequence of DNA or RNA to study the genetic variation associated with diseases, it is a sequencing method where millions of sequencing reactions are carried out in parallel, produces massive number of sequences from a single cell in a short period of time.
 
-##Before we begin, it is better to recoginze some definitions and termenologies will be uesd in the following lines.
+## Before we begin, it is better to recoginze some definitions and termenologies will be uesd in the following lines.
 
 (High-throughput sequencing) : A key feature of NGS, refering to the ability for processing a massive number of DNA sequencing simultaneously with lower cost unlike the earlier methods.
 
@@ -34,7 +34,7 @@ NGS it is a technology for determining the sequence of DNA or RNA to study the g
 
 (paired-end sequencing) : the DNA or RNA fragments are sequenced from two ends, meaning the sequencer reads the the fragment from both ends.
 
-##File formats
+## File formats
 
 Real-time analysis in sequencing technologies stores the individual base call data in intermediate files called 'BCL' these files are filtered, demultiplexed and converted into a sequence file format called 'FASTQ' when the sequencer completes the run.
 
@@ -58,7 +58,7 @@ Real-time analysis in sequencing technologies stores the individual base call da
 
 
 
-##How NGS works?
+## How NGS works?
 
 ** NGS involves in four main steps **
 1. Sample collection and preparation.
