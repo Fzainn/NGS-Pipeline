@@ -80,13 +80,13 @@ base calling step is performing directly after the sequencer machine output itâ€
 
 
 ## Source of the data
-*we will use single-end FASTQ file with the run ID "SRR030834", this file contains reads sequenced from an ancient hair tuft 4000 year-old male individual from an ancient saqqaq palaeo-Eskimo, the saqqaq culture rerpresents an ancient paleo-Eskimo that existed in Greenland from around 2500 BCE to 800 BCE.
+we will use single-end FASTQ file with the run ID "SRR030834", this file contains reads sequenced from an ancient hair tuft 4000 year-old male individual from an ancient saqqaq palaeo-Eskimo, the saqqaq culture rerpresents an ancient paleo-Eskimo that existed in Greenland from around 2500 BCE to 800 BCE.
 
 ## Scope and Objective
-*You will learn how to analyse Next generation sequencing data in this pipeline, which will focus on detecting the genomic variations of saqqaq palaeo_Eskimo individual to understand the functional impact on biological processes and adaptive traits compared with modern Inuit populations.
+You will learn how to analyse Next generation sequencing data in this pipeline, which will focus on detecting the genomic variations of saqqaq palaeo_Eskimo individual to understand the functional impact on biological processes and adaptive traits compared with modern Inuit populations.
 
 ## Raw Sequencing Data Quality Control
-*we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from Sequence Read Archive(SRA) maintained by National Center for Biotechnology information (NCBI), for SRA-toolkit downloading, run this in your terminal;
+we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from Sequence Read Archive(SRA) maintained by National Center for Biotechnology information (NCBI), for SRA-toolkit downloading, run this in your terminal;
 
 ## Installation
     #SRA-toolkit downloading
@@ -152,7 +152,7 @@ base calling step is performing directly after the sequencer machine output itâ€
     #quality control
     fastqc SRR030834.fastq
 
-FastQC will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
+# FastQC will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
 
         *Per base sequence quality: this ia show box plots of the quality distributions on each position across all bases of the reads, the background graph is divided into three regions representing the quality score, the green region (Q>20) are verry good, the orange region (20<Q<28) are acceptable, the red region (Q<20) are poor, in our case, we have sequence readâ€™s score less than 20 
 
