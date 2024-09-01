@@ -56,47 +56,40 @@ Real-time analysis in sequencing technologies stores the individual base call da
 
 ## How NGS works?
 
-** NGS involves in four main steps **
+NGS involves in four main steps:
 1. Sample collection and preparation.
 2. Library Amplification.
 3. Sequencing.
 4. Basecalling.
 
-**Sample collection and preparation**
-
+**Sample collection and preparation**:
 the process starts with the extraction of DNA or RNA form organism of your interet, to determine the collection method you should determine what the sample is.
 fragmening the DNA or RNA into smaller pieces to load these fragments in the flowcell, adding adapter sequences to each fragment for binging DNA/RNA to the sequencung flowcell.
 During the DNA fragmentation the ends of DNA pieces can be ragged 'unblunt' this means that DNA fragment is not ready to bind with other DNA fragments or adapters, to fix this issue 'en-repair process' is used, in which uneven ends are smooths out. After ends are blunt-ended 'A-tailing' is performed to add an 'A' base 'adenine' is added to the 3' ends of DNA fragments to ensure that the DNA fragments do not bind to each other and attach easily to the adapters as the 'A' base in DNA fragment will match up with the 'T' base on the adapter.
 
-**Library Amplification**
-
+**Library Amplification**:
 increase the quantity of DNA using polymerase chain reaction(PCR).
 
-**Sequencing**
-
+**Sequencing**:
 loading the DNA fragments onto a flowcell, then the fragments are amplified to create clusters of identical DNA molecules.
 
-**Basecalling**
-
+**Basecalling**:
 base calling step is performing directly after the sequencer machine output it’s result (raw data) and converting raw data signals 'durnig sequencing the machine detects signals such as flashes of lights or changes in electrical current' into a readable DNA sequence "A,T,C,G". during base calling step phred score (Quality score) is performed. it is pre-base estimates error emitted by the sequencer to express the level of confidence and measure the quality of each nucleotide base call in DNA sequence it is logaritmic scale of the base call error probability. the output of the base calling process is resulted in sequence of nucleotides along with their corresponding quality score stored in FASTQ files contains base sequence and it’s score for each base.
     
 
 
 
 ## Source of the data
-
 *we will use single-end FASTQ file with the run ID "SRR030834", this file contains reads sequenced from an ancient hair tuft 4000 year-old male individual from an ancient saqqaq palaeo-Eskimo, the saqqaq culture rerpresents an ancient paleo-Eskimo that existed in Greenland from around 2500 BCE to 800 BCE.
 
 ## Scope and Objective
-
 *You will learn how to analyse Next generation sequencing data in this pipeline, which will focus on detecting the genomic variations of saqqaq palaeo_Eskimo individual to understand the functional impact on biological processes and adaptive traits compared with modern Inuit populations.
 
 ## Raw Sequencing Data Quality Control
-
 *we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from Sequence Read Archive(SRA) maintained by National Center for Biotechnology information (NCBI), for SRA-toolkit downloading, run this in your terminal;
 
-    ```sh
-    #SRA-toolkit downloading
+## Installation
+    SRA-toolkit downloading
     wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.1.1-ubuntu64.tar.gz
 
     #Extract toolkit
