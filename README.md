@@ -2,7 +2,7 @@
 # Next generation sequencing workflow pipline Documentation
 
 ## Intorduction
-this documentation outlines the steps involved in NGS analysis workflow from data acquisition to final visualization and interpretation step by step.
+*this documentation outlines the steps involved in NGS analysis workflow from data acquisition to final visualization and interpretation step by step.
 
 ## Next generation sequencing with definitions and file formats
 
@@ -44,13 +44,9 @@ Real-time analysis in sequencing technologies stores the individual base call da
     -third line is placeholder line begins with '+' separating the sequence from it’s scores.
     -fourth line is quality score line.
 
-![FASTQ file format showing four lines](fastq)
-
 (FASTA files) : is text-based format for repressenting the DNA, RNA, and protein sequences, consists of two lines
     -first line starts with a '>' character followed by a unique identifier and description of the sequence
     -second line contians the sequence.
-
-![FASTA file format showing two lines](fasta)
 
 (SAM files) : sequence alignment map is the most basic human readable text-based format,it is commonly used for storing the biological sequence aligned to the reference genome.
 
@@ -68,40 +64,36 @@ Real-time analysis in sequencing technologies stores the individual base call da
 
 **Sample collection and preparation**
 
-    the process starts with the extraction of DNA or RNA form organism of your interet, to determine the collection method you should determine what the sample is.
-    fragmening the DNA or RNA into smaller pieces to load these fragments in the flowcell, adding adapter sequences to each fragment for binging DNA/RNA to the sequencung flowcell.
-    During the DNA fragmentation the ends of DNA pieces can be ragged 'unblunt' this means that DNA fragment is not ready to bind with other DNA fragments or adapters, to fix this issue 'en-repair process' is used, in which uneven ends are smooths out. 
-    After ends are blunt-ended 'A-tailing' is performed to add an 'A' base 'adenine' is added to the 3' ends of DNA fragments to ensure that the DNA fragments do not bind to each other and attach easily to the adapters as the 'A' base in DNA fragment will match up with the 'T' base on the adapter.
+the process starts with the extraction of DNA or RNA form organism of your interet, to determine the collection method you should determine what the sample is.
+fragmening the DNA or RNA into smaller pieces to load these fragments in the flowcell, adding adapter sequences to each fragment for binging DNA/RNA to the sequencung flowcell.
+During the DNA fragmentation the ends of DNA pieces can be ragged 'unblunt' this means that DNA fragment is not ready to bind with other DNA fragments or adapters, to fix this issue 'en-repair process' is used, in which uneven ends are smooths out. After ends are blunt-ended 'A-tailing' is performed to add an 'A' base 'adenine' is added to the 3' ends of DNA fragments to ensure that the DNA fragments do not bind to each other and attach easily to the adapters as the 'A' base in DNA fragment will match up with the 'T' base on the adapter.
 
 **Library Amplification**
 
-    increase the quantity of DNA using polymerase chain reaction(PCR).
+increase the quantity of DNA using polymerase chain reaction(PCR).
 
 **Sequencing**
 
-    loading the DNA fragments onto a flowcell, then the fragments are amplified to create clusters of identical DNA molecules.
+loading the DNA fragments onto a flowcell, then the fragments are amplified to create clusters of identical DNA molecules.
 
 **Basecalling**
 
-    base calling step is performing directly after the sequencer machine output it’s result (raw data) and converting raw data signals 'durnig sequencing the machine detects signals such as flashes of lights or changes in electrical current' into a readable DNA sequence "A,T,C,G".
-    during base calling step phred score (Quality score) is performed. it is pre-base estimates error emitted by the sequencer to express the level of confidence and measure the quality of each nucleotide base call in DNA sequence
-    it is logaritmic scale of the base call error probability. 
-    the output of the base calling process is resulted in sequence of nucleotides along with their corresponding quality score stored in FASTQ files contains base sequence and it’s score for each base.
+base calling step is performing directly after the sequencer machine output it’s result (raw data) and converting raw data signals 'durnig sequencing the machine detects signals such as flashes of lights or changes in electrical current' into a readable DNA sequence "A,T,C,G". during base calling step phred score (Quality score) is performed. it is pre-base estimates error emitted by the sequencer to express the level of confidence and measure the quality of each nucleotide base call in DNA sequence it is logaritmic scale of the base call error probability. the output of the base calling process is resulted in sequence of nucleotides along with their corresponding quality score stored in FASTQ files contains base sequence and it’s score for each base.
     
 
 
 
-##Source of the data
+## Source of the data
 
-we will use single-end FASTQ file with the run ID "SRR030834", this file contains reads sequenced from an ancient hair tuft 4000 year-old male individual from an ancient saqqaq palaeo-Eskimo, the saqqaq culture rerpresents an ancient paleo-Eskimo that existed in Greenland from around 2500 BCE to 800 BCE.
+*we will use single-end FASTQ file with the run ID "SRR030834", this file contains reads sequenced from an ancient hair tuft 4000 year-old male individual from an ancient saqqaq palaeo-Eskimo, the saqqaq culture rerpresents an ancient paleo-Eskimo that existed in Greenland from around 2500 BCE to 800 BCE.
 
-##Scope and Objective
+## Scope and Objective
 
--You will learn how to analyse Next generation sequencing data in this pipeline, which will focus on detecting the genomic variations of saqqaq palaeo_Eskimo individual to understand the functional impact on biological processes and adaptive traits compared with modern Inuit populations.
+*You will learn how to analyse Next generation sequencing data in this pipeline, which will focus on detecting the genomic variations of saqqaq palaeo_Eskimo individual to understand the functional impact on biological processes and adaptive traits compared with modern Inuit populations.
 
-##Raw Sequencing Data Quality Control
+## Raw Sequencing Data Quality Control
 
-we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from Sequence Read Archive(SRA) maintained by National Center for Biotechnology information (NCBI), for SRA-toolkit downloading, run this in your terminal;
+*we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from Sequence Read Archive(SRA) maintained by National Center for Biotechnology information (NCBI), for SRA-toolkit downloading, run this in your terminal;
 
     ```sh
     #SRA-toolkit downloading
@@ -138,11 +130,10 @@ we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from S
 
 
 **Data processing and formatting**
-
-    After downloading FASTQ file, we will create tabular file form FASTQ file and this tabulation faciliting several operations such as;
-        -make the data straightforward and human-readable summary for interpretation and analysis
-        -enable easy calculation of various statistics, filtering out the duplicates, extracting read ID’s and sequences 
-        -assist in the implementation of filtering and trimming algorithms and improve downstream analysis aaccuracy
+After downloading FASTQ file, we will create tabular file form FASTQ file and this tabulation faciliting several operations such as;
+    *make the data straightforward and human-readable summary for interpretation and analysis
+    *enable easy calculation of various statistics, filtering out the duplicates, extracting read ID’s and sequences 
+    *assist in the implementation of filtering and trimming algorithms and improve downstream analysis aaccuracy
     and will make temporary files (.tmp) as they facilitate in data manipulation, transformation, and formatting without modify the original input files
 
     ```sh
@@ -169,37 +160,37 @@ we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from S
 
 **Post-Sequencing quality**
 
-    Post-sequence quality check must be performed to assess the read quality to ensure that there are no back-ground noises, the data looks good and there is no biases leads to inacurrate results. FASTQC is the most common programm use to check the quality of the sequence it is generate summary and simple graphical reports that show an overall idea about the quality of the raw data
+*Post-sequence quality check must be performed to assess the read quality to ensure that there are no back-ground noises, the data looks good and there is no biases leads to inacurrate results. FASTQC is the most common programm use to check the quality of the sequence it is generate summary and simple graphical reports that show an overall idea about the quality of the raw data
 
-   ```sh
-   #downloading fastqc tool
-   wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.0.zip
+   
+   ### downloading fastqc tool
+        wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.0.zip
 
-   #decompress the zipped file with unzip
-   fastqc_v0.12.0.zip
+   ### decompress the zipped file with unzip
+       fastqc_v0.12.0.zip
 
-   #navigate to FaSTQC directory   
-   cd FastQC
+   ### navigate to FaSTQC directory   
+       cd FastQC
 
-   #to make "fastqc" executable
-   chmod 755 fastqc
+   ### to make "fastqc" executable
+       chmod 755 fastqc
 
-   #open ".bashrc" file (or any text editor) to add fastqc to the path
-   nano ~/.bashrc
+   ### copen ".bashrc" file (or any text editor) to add fastqc to the path
+       nano ~/.bashrc
 
-   #add the path at the bottom of the file and replace this "/home/mypath/FastQC" with the actual path where the fastqc file is located then save the changes and exit from text editor
-   export PATH=$PATH:/home/mypath/FastQC
+   ### add the path at the bottom of the file and replace this "/home/mypath/FastQC" with the actual path where the fastqc file is located then save the changes and exit from text editor
+       export PATH=$PATH:/home/mypath/FastQC
 
-   #apply the changes
-   source ~/.bashrc
+   ### apply the changes
+      source ~/.bashrc
 
-   #for testing the fastqc, if the path set correctly, it will show help instructions
-   fasqc -h
+   ### for testing the fastqc, if the path set correctly, it will show help instructions
+       fasqc -h
 
    #quality control
    fastqc SRR030834.fastq
 
-    FastQC will generate a .html file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
+    *FastQC will generate a .html file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
 
         - Per base sequence quality: this ia show box plots of the quality distributions on each position across all bases of the reads, the background graph is divided into three regions representing the quality score, the green region (Q>20) are verry good, the orange region (20<Q<28) are acceptable, the red region (Q<20) are poor, in our case, we have sequence read’s score less than 20 
 
