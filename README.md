@@ -152,21 +152,20 @@ we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from S
     #quality control
     fastqc SRR030834.fastq
 
-# FastQC will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
+FastQC will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
 
-        *Per base sequence quality: this ia show box plots of the quality distributions on each position across all bases of the reads, the background graph is divided into three regions representing the quality score, the green region (Q>20) are verry good, the orange region (20<Q<28) are acceptable, the red region (Q<20) are poor, in our case, we have sequence read’s score less than 20 
+Per base sequence quality: this ia show box plots of the quality distributions on each position across all bases of the reads, the background graph is divided into three regions representing the quality score, the green region (Q>20) are verry good, the orange region (20<Q<28) are acceptable, the red region (Q<20) are poor, in our case, we have sequence read’s score less than 20 
 
-        *Per sequence quality score: heatmap shows the quality score across different tiles of the sequencing chip with coloring code indicating the QS the colors ranges from green(high quality) to red(lowquality), if there are low quality score thats because of physical defetcs, issues with the sequencing chemistry or problem with sample preparation, so it should be filtered out.
+Per sequence quality score: heatmap shows the quality score across different tiles of the sequencing chip with coloring code indicating the QS the colors ranges from green(high quality) to red(lowquality), if there are low quality score thats because of physical defetcs, issues with the sequencing chemistry or problem with sample preparation, so it should be filtered out.
 
-        *per base sequence content: provide detailed view of the nucleotides compositions at each base position and this identify if there any biases in base position, there are four colored lines representing the persentage of each base " A in green, T in red, G in black, and C in blue " it will be a good read if the lines are relatively flat to each other, in our case the per base sequence content have warning sing that should be filtered.
+per base sequence content: provide detailed view of the nucleotides compositions at each base position and this identify if there any biases in base position, there are four colored lines representing the persentage of each base " A in green, T in red, G in black, and C in blue " it will be a good read if the lines are relatively flat to each other, in our case the per base sequence content have warning sing that should be filtered.
 
-        *Per sequence GC content: we have two curves, blue curve that represent the normal distribution of the GC content in the sequence reads, and the purple curve represents the up-normal distribution of the GC content.
+Per sequence GC content: we have two curves, blue curve that represent the normal distribution of the GC content in the sequence reads, and the purple curve represents the up-normal distribution of the GC content.
 
-        - Sequence duplication levels: high sequence duplication level indicating issues with PCR amplification biase or adapter containation.
+        * Sequence duplication levels: high sequence duplication level indicating issues with PCR amplification biase or adapter containation.
 
-        - Adapter content: identify the extend of adapter contamination of the sequence data.
-
-    After making FastQC report, we notice that our data need to be filtered or trimming step.
+        * Adapter content: identify the extend of adapter contamination of the sequence data.
+        After making FastQC report, we notice that our data need to be filtered or trimming step.
 
 **Trimmig with fastp**
 
