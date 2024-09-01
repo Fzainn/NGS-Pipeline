@@ -163,9 +163,9 @@ will generate a '.html' file which contains a detailed report about the sequence
 
 * Per sequence GC content: we have two curves, blue curve that represent the normal distribution of the GC content in the sequence reads, and the purple curve represents the up-normal distribution of the GC content.
 
-  * Sequence duplication levels: high sequence duplication level indicating issues with PCR amplification biase or adapter containation.
+* Sequence duplication levels: high sequence duplication level indicating issues with PCR amplification biase or adapter containation.
 
-  * Adapter content: identify the extend of adapter contamination of the sequence data. After making FastQC report, we notice that our data need to be filtered or trimming step.
+* Adapter content: identify the extend of adapter contamination of the sequence data. After making FastQC report, we notice that our data need to be filtered or trimming step.
 
 **Trimmig with fastp**
 
