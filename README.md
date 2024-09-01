@@ -2,7 +2,7 @@
 # Next generation sequencing workflow pipline Documentation
 
 ## Intorduction
-*this documentation outlines the steps involved in NGS analysis workflow from data acquisition to final visualization and interpretation step by step.
+this documentation outlines the steps involved in NGS analysis workflow from data acquisition to final visualization and interpretation step by step.
 
 ## Next generation sequencing with definitions and file formats
 
@@ -120,39 +120,39 @@ base calling step is performing directly after the sequencer machine output itâ€
     gzip -d SRR030834.fastq.gz
 
 
-*Post-Sequencing quality*
+**Post-Sequencing quality**
 
-*Post-sequence quality check must be performed to assess the read quality to ensure that there are no back-ground noises, the data looks good and there is no biases leads to inacurrate results. FASTQC is the most common programm use to check the quality of the sequence it is generate summary and simple graphical reports that show an overall idea about the quality of the raw data
+    Post-sequence quality check must be performed to assess the read quality to ensure that there are no back-ground noises, the data looks good and there is no biases leads to inacurrate results. FASTQC is the     most common programm use to check the quality of the sequence it is generate summary and simple graphical reports that show an overall idea about the quality of the raw data
 
    
    ### downloading fastqc tool
-        wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.0.zip
+    wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.0.zip
 
-       #decompress the zipped file with unzip
-       fastqc_v0.12.0.zip
+    #decompress the zipped file with unzip
+    fastqc_v0.12.0.zip
 
-       #navigate to FaSTQC directory   
-       cd FastQC
+    #navigate to FaSTQC directory   
+    cd FastQC
 
-       #to make "fastqc" executable
-       chmod 755 fastqc
+    #to make "fastqc" executable
+    chmod 755 fastqc
 
-       #copen ".bashrc" file (or any text editor) to add fastqc to the path
-       nano ~/.bashrc
+    #topen ".bashrc" file (or any text editor) to add fastqc to the path
+    nano ~/.bashrc
 
-       #add the path at the bottom of the file and replace this "/home/mypath/FastQC" with the actual path where the fastqc file is located then save the changes and exit from text editor
-       export PATH=$PATH:/home/mypath/FastQC
+    #add the path at the bottom of the file and replace this "/home/mypath/FastQC" with the actual path where the fastqc file is located then save the changes and exit from text editor
+    export PATH=$PATH:/home/mypath/FastQC
 
-       #apply the changes
-       source ~/.bashrc
+    #apply the changes
+    source ~/.bashrc
 
-       #for testing the fastqc, if the path set correctly, it will show help instructions
-       fasqc -h
+    #for testing the fastqc, if the path set correctly, it will show help instructions
+    fasqc -h
 
-       #quality control
-       fastqc SRR030834.fastq
+    #quality control
+    fastqc SRR030834.fastq
 
-## FastQC will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
+FastQC will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
 
         *Per base sequence quality: this ia show box plots of the quality distributions on each position across all bases of the reads, the background graph is divided into three regions representing the quality score, the green region (Q>20) are verry good, the orange region (20<Q<28) are acceptable, the red region (Q<20) are poor, in our case, we have sequence readâ€™s score less than 20 
 
@@ -168,7 +168,7 @@ base calling step is performing directly after the sequencer machine output itâ€
 
     After making FastQC report, we notice that our data need to be filtered or trimming step.
 
-*Trimmig with fastp*
+**Trimmig with fastp**
 
   
 
