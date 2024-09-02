@@ -101,8 +101,7 @@ we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from S
     #Reload the shell configuration
     source ~/.bashrc
 
-*Downloading FASTQ file*
-    to be well-organized, create the directory "fastqs" and download the file, run this in your terminal;
+Downloading FASTQ file to be well-organized, create the directory "fastqs" and download the file, run this in your terminal;
 
     #make new directory 
     mkdir fastqs
@@ -120,9 +119,9 @@ we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from S
     gzip -d SRR030834.fastq.gz
 
 
-**Post-Sequencing quality**
+Post-Sequencing quality
 
-    Post-sequence quality check must be performed to assess the read quality to ensure that there are no back-ground noises, the data looks good and there is no biases leads to inacurrate results. FASTQC is the     most common programm use to check the quality of the sequence it is generate summary and simple graphical reports that show an overall idea about the quality of the raw data
+Post-sequence quality check must be performed to assess the read quality to ensure that there are no back-ground noises, the data looks good and there is no biases leads to inacurrate results. FASTQC is the     most common programm use to check the quality of the sequence it is generate summary and simple graphical reports that show an overall idea about the quality of the raw data
 
    
    ### downloading fastqc tool
