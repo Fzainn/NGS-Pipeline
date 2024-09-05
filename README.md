@@ -77,6 +77,16 @@ loading the DNA fragments onto a flowcell, then the fragments are amplified to c
 base calling step is performing directly after the sequencer machine output it’s result (raw data) and converting raw data signals 'durnig sequencing the machine detects signals such as flashes of lights or changes in electrical current' into a readable DNA sequence "A,T,C,G". during base calling step phred score (Quality score) is performed. it is pre-base estimates error emitted by the sequencer to express the level of confidence and measure the quality of each nucleotide base call in DNA sequence it is logaritmic scale of the base call error probability. the output of the base calling process is resulted in sequence of nucleotides along with their corresponding quality score stored in FASTQ files contains base sequence and it’s score for each base.
     
 
+## NGS workflow
+
+
+
+
+
+![NGS workflow](https://github.com/user-attachments/assets/3c69d0ed-204f-4575-a881-17032546096b)
+
+
+
 
 
 ## Source of the data
