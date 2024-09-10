@@ -84,7 +84,7 @@ base calling step is performing directly after the sequencer machine output itâ€
 
 ## Source of the data
 Data used in this workflow divided into two types, evolved and ancestral Ecoli raw data. we will use two ancestral sample and four evolved samples form two E.coli strains
-you can download raw dataset from here (Ref)(https://genomics.sschmeier.com/downloads)
+you can download raw dataset from here (https://genomics.sschmeier.com/downloads)
 
 
 ## Scope and Objective
