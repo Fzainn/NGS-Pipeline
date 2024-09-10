@@ -15,7 +15,7 @@ NGS it is a technology for determining the sequence of DNA or RNA to study the g
 
 (flowcell) : physical chip where the DNA is loaded for sequencer.
 
-(Adapter) : short fragments of DNA that have a "T" base 'thymine' overhang.
+(Adapter) : synthetic short fragments of DNA that have a "T" base 'thymine' overhang. are added to the DNA fragments during library preparation for sequencing, it is unique as it attaches the fragments. sometimes these adapters still be present in the raw sequencing data.
 
 (Alignment) : the proccess of comparing and matching the sequenced reads(short DNA fragments) to the referance genome.
 
@@ -91,7 +91,7 @@ you can download raw dataset from here (https://genomics.sschmeier.com/downloads
 You will learn how to analyse Next generation sequencing data in this pipeline, which will focus on detecting the genomic variations of E.coli dataset to understand the functional impact on biological processes and adaptive traits compared to evolved strains.
 
 
-## Installation
+## 'SRAtool' Installation
 if you want to perform this pipeline on external data, you can install "SRAtool" for downloading dataset from NCBI.
 
     #SRA-toolkit downloading
@@ -121,7 +121,20 @@ Downloading FASTQ file to be well-organized, create the directory "fastqs" and d
     gzip -d data.fastq.gz
 
 
-## Trimming with trimmomatic
+## Data Trimming 
+In this step we will clean up our data from any low-quality bases, adapters, overrepresented sequences, biases, for improving the accuracy of read mapping and overall data quality.
+The most two common tool for trimmig are "fastp and trimmomatic" in our case we will use "fastp" because of:
+* we do not have information abot the adapters used in dataset used in this pipeline and "fastp" automaticaly detects and remove adapters based on the data without knowing the used adapters.
+* "fastp" faster and more effecient, user-friendly with automatic optimization and fewer parameters and doesn’t require detailed configurations.
+
+## Fastp Installation by Conda
+    #download miniconda
+    wget 
+
+
+
+ 
+    
 
 
 
