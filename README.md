@@ -1,4 +1,4 @@
-# NGS-Pipeline
+## NGS-Pipeline
 Next generation sequencing workflow pipline, this documentation outlines the steps involved in NGS analysis workflow from data acquisition to final visualization and interpretation step by step.
 
 ## Next generation sequencing with definitions and file formats
@@ -92,7 +92,7 @@ You will learn how to analyse Next generation sequencing data in this pipeline, 
 
 
 ## Installation
-if you want to perform this pipeline on external data, you can install SRAtool for downloading dataset from NCBI.
+if you want to perform this pipeline on external data, you can install "SRAtool" for downloading dataset from NCBI.
 
     #SRA-toolkit downloading
     wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.1.1-ubuntu64.tar.gz
@@ -113,15 +113,40 @@ Downloading FASTQ file to be well-organized, create the directory "fastqs" and d
 
     #navigate to fastqs directory
     cd fastqs
-
-    #make new directory for single-end files
-    mkdir singel-end
-
+    
     #download FASTQ file
-    fasterq-dump --verbose SRR030834
+    fasterq-dump --verbose "accession number for dataset"
 
-    #in the following steps we will perform Quality control, so it is recommended to decompress FASTQ file if it is downloaded in compressed form, you can do it by running this command
-    gzip -d SRR030834.fastq.gz
+    #decompress fastq data for further steps
+    gzip -d data.fastq.gz
+
+
+## Trimming with trimmomatic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 Post-Sequencing quality
@@ -170,6 +195,7 @@ will generate a '.html' file which contains a detailed report about the sequence
 * Sequence duplication levels: high sequence duplication level indicating issues with PCR amplification biase or adapter containation.
 
 * Adapter content: identify the extend of adapter contamination of the sequence data. After making FastQC report, we notice that our data need to be filtered or trimming step.
+for more detailed information about FastQC result  
 
 **Trimmig with fastp**
 
