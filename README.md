@@ -88,12 +88,12 @@ you can download raw dataset from here (https://genomics.sschmeier.com/downloads
 
 
 ## Scope and Objective
-You will learn how to analyse Next generation sequencing data in this pipeline, which will focus on detecting the genomic variations of saqqaq palaeo_Eskimo individual to understand the functional impact on biological processes and adaptive traits compared with modern Inuit populations.
+You will learn how to analyse Next generation sequencing data in this pipeline, which will focus on detecting the genomic variations of E.coli dataset to understand the functional impact on biological processes and adaptive traits compared to evolved strains.
 
-## Raw Sequencing Data Quality Control
-we will use SRA-toolKit, as it has "fastq-dump" tool which retrieves data from Sequence Read Archive(SRA) maintained by National Center for Biotechnology information (NCBI), for SRA-toolkit downloading, run this in your terminal;
 
 ## Installation
+if you want to perform this pipeline on external data, you can install SRAtool for downloading dataset from NCBI.
+
     #SRA-toolkit downloading
     wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.1.1-ubuntu64.tar.gz
 
