@@ -90,7 +90,9 @@ base calling step is performing directly after the sequencer machine output itâ€
 
 
 ## Source of the data
-we will use single-end FASTQ file with the run ID "SRR030834", this file contains reads sequenced from an ancient hair tuft 4000 year-old male individual from an ancient saqqaq palaeo-Eskimo, the saqqaq culture rerpresents an ancient paleo-Eskimo that existed in Greenland from around 2500 BCE to 800 BCE.
+Data used in this workflow divided into two types, evolved and ancestral Ecoli raw data. we will use two ancestral sample and four evolved samples form two E.coli strains
+you can download raw dataset from here (Ref)(https://genomics.sschmeier.com/downloads)
+
 
 ## Scope and Objective
 You will learn how to analyse Next generation sequencing data in this pipeline, which will focus on detecting the genomic variations of saqqaq palaeo_Eskimo individual to understand the functional impact on biological processes and adaptive traits compared with modern Inuit populations.
