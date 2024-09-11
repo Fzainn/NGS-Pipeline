@@ -121,7 +121,7 @@ Downloading FASTQ file to be well-organized, create the directory "fastqs" and d
     gzip -d data.fastq.gz
 
 
-## Data Trimming 
+## Quality control
 In this step we will clean up our data from any low-quality bases, adapters, overrepresented sequences, biases, for improving the accuracy of read mapping and overall data quality.
 The most two common tool for trimmig are "fastp and trimmomatic" in our case we will use "fastp" because of:
 * we do not have information abot the adapters used in dataset used in this pipeline and "fastp" automaticaly detects and remove adapters based on the data without knowing the used adapters.
@@ -167,6 +167,21 @@ Alternatively, you can just download "fastp" manualy from here(https://anaconda.
 
     #check if "fastp" is installed by list env packages, you will see the name, version and channel(where tools stored) of every installed tool.
     conda list
+
+
+## Data trimming 
+
+
+
+
+    #make new directory 
+    mkdir data
+
+    #navigate to data
+    cd data
+
+    #trimming data with fatsp
+    
 
     
     
