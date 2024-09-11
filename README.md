@@ -128,8 +128,51 @@ The most two common tool for trimmig are "fastp and trimmomatic" in our case we 
 * "fastp" faster and more effecient, user-friendly with automatic optimization and fewer parameters and doesn’t require detailed configurations.
 
 ## Fastp Installation by Conda
-    #download miniconda
-    wget 
+Conda is an open-source package management system tool for bioinformatics, to be more informed look here(https://docs.conda.io/en/latest/), but substantially, conda has channels for storing and downloading tools and packages, so after installing conda, we will install conda channels if needed. for more reusability, organization and version control make an isolated environment for each package/tool to prevent any errors or conflicts with the base of conda environment (it is optional but highly recommended to create a separate environment).
+Alternatively, you can just download "fastp" manualy from here(https://anaconda.org/bioconda/fastp), but it is recommended to install conda as we will set up more tools and packages in further analysis.
+
+    #download miniconda latset version
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+    #Run installer script
+    bash Miniconda3-latest-Linux-x86_64.sh
+
+    #open bashrc file via nano(or any text editor) and put package’s path at the end of the file, then save the changes
+    nano ~/.bashrc
+
+    #Add Path
+    export PATH="~/miniconda3/bin:$PATH"
+
+    #Reload shell configuration
+    source ~/.bashrc
+
+    #Ensure that conda is installed 
+    conda --version
+
+    #After restart your terminal, run this into your terminal to show the channels, it will show channels that are set up via the latest version of conda, if you want to add more channles, run the second command.
+    conda config --show channels
+    conda config --<CHANNEL NAME>
+
+    #create new environmet
+    conda create -n fastp-env
+
+    #initialize conda in your shell and restart your terminal
+    conda init
+
+    #env activation, to navigate to fastp-env 
+    conda activate fastp-env
+
+    #install fastp
+    conda install -c bioconda fastp
+
+    #check if "fastp" is installed by list env packages, you will see the name, version and channel(where tools stored) of every installed tool.
+    conda list
+
+    
+    
+
+
+
 
 
 
