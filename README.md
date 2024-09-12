@@ -83,7 +83,7 @@ base calling step is performing directly after the sequencer machine output it�
 
 
 ## Source of the data
-Data used in this workflow divided into two types, evolved and ancestral Ecoli raw data. we will use two ancestral sample and four evolved samples form two E.coli strains
+Data used in this workflow from E.coli, evolved and ancestral raw data. two ancestral samples and four evolved samples(evolved from two different strains)
 you can download raw dataset from here (https://genomics.sschmeier.com/downloads)
 
 
@@ -121,14 +121,8 @@ Downloading FASTQ file to be well-organized, create the directory "fastqs" and d
     gzip -d data.fastq.gz
 
 
-## Quality control
-In this step we will clean up our data from any low-quality bases, adapters, overrepresented sequences, biases, for improving the accuracy of read mapping and overall data quality.
-The most two common tool for trimmig are "fastp and trimmomatic" in our case we will use "fastp" because of:
-* we do not have information abot the adapters used in dataset used in this pipeline and "fastp" automaticaly detects and remove adapters based on the data without knowing the used adapters.
-* "fastp" faster and more effecient, user-friendly with automatic optimization and fewer parameters and doesn’t require detailed configurations.
-
 ## Fastp Installation by Conda
-Conda is an open-source package management system tool for bioinformatics, to be more informed look here(https://docs.conda.io/en/latest/), but substantially, conda has channels for storing and downloading tools and packages, so after installing conda, we will install conda channels if needed. for more reusability, organization and version control make an isolated environment for each package/tool to prevent any errors or conflicts with the base of conda environment (it is optional but highly recommended to create a separate environment).
+Conda is an open-source package management system tool for bioinformatics, to be more informed look here(https://docs.conda.io/en/latest/), but substantially, conda has channels for storing and downloading tools and packages, so after installing conda, we will install conda channels if needed. for more reusability, organization and version control make an isolated environment for each package/tool to prevent any errors or conflicts with the base of conda environment (it is optional but highly recommended to create a separate environment). have a look at "fastp" usage (https://open.bioqueue.org/home/knowledge/showKnowledge/sig/fastp)
 Alternatively, you can just download "fastp" manualy from here(https://anaconda.org/bioconda/fastp), but it is recommended to install conda as we will set up more tools and packages in further analysis.
 
     #download miniconda latset version
@@ -169,18 +163,19 @@ Alternatively, you can just download "fastp" manualy from here(https://anaconda.
     conda list
 
 
-## Data trimming 
+## Quality control and Data trimming  
+In this step we will filter out data from any low-quality bases, adapters, overrepresented sequences, biases, for improving the accuracy of read mapping and overall data quality.
+The most two common tool for trimmig are "fastp and trimmomatic" in our case we will use "fastp" because of:
+* we do not have information about the adapters used in dataset used in this pipeline and "fastp" automaticaly detects and removes adapters based on the data without knowing the used adapters.
+* "fastp" faster and more effecient, user-friendly with automatic optimization and fewer parameters and doesn’t require detailed configurations.
 
+        #make new directory 
+        mkdir data
 
+        #navigate to data
+        cd data
 
-
-    #make new directory 
-    mkdir data
-
-    #navigate to data
-    cd data
-
-    #trimming data with fatsp
+        #trimming data with fatsp
     
 
     
