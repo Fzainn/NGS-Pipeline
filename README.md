@@ -175,7 +175,29 @@ The most two common tool for trimmig are "fastp and trimmomatic" in our case we 
         #navigate to data
         cd data
 
-        #trimming data with fatsp
+        #trimming data with fastp(ancestral)
+        fastp --detect_adapter_for_pe --overrepresentation_analysis --correction --cut_right --thread 2 --html trimmedData/anc.fastp.html --json trimmedData/anc.fastp.json -i anc_R1.fastq.gz -I anc_R2.fastq.gz -         o trimmedData/anc_R1.fastq.gz -O trimmedData/anc_R2.fastq.gz
+
+        #trimming data with fastp(evolved sample1)
+        fastp --detect_adapter_for_pe --overrepresentation_analysis --correction --cut_right --thread 2 --html trimmedData/evol1.fastp.html --json trimmedData/evol1.fastp.json -i evol1_R1.fastq.gz -I                     evol1_R2.fastq.gz -o trimmedData/evol1_R1.fastq.gz -O trimmedData/evol1_R2.fastq.gz
+
+        #trimming data with fastp(evolved sample2)
+        fastp --detect_adapter_for_pe --overrepresentation_analysis --correction --cut_right --thread 2 --html trimmedData/evol2.fastp.html --json trimmedData/evol2.fastp.json -i evol2_R1.fastq.gz -I                     evol2_R2.fastq.gz -o trimmedData/evol2_R1.fastq.gz -O trimmedData/evol2_R2.fastq.gz
+  
+* --detect_adapter_for_pe: by default the auto-detection for adapter is for single-end data only. so in this case we need to turn on paired-end option but put that in mind specifies PE optionmay slow the performance and increase time of fastp since it will do additional analysis to identify and remove adapter. good to know it results a cleaner output as it is improve the accuracy of the overlap analysis and overall quality for data.
+* overrepresentation_analysis: for identifying potentail PCR duplication.
+* --correction: enabling this option as by default it is disabled in "fastp" so it perform overlap analysis only for paired-end data if a proper overlap is found, it can correct mismatched basepaires in overlapped regions.
+* --cut_right: trim the nucleotide from the right-end of reads(3’end) based on the quality scores cutting until the quality value of the last base is above threshold.
+* --thread 2: use 2 threads for parallel processing.
+* --html: generating an html report showing results of trimming
+* --json: json files for record-keeping and furthur analysis
+* trimmedData/: the directory where the results will be saved
+
+  
+
+  
+
+    
     
 
     
