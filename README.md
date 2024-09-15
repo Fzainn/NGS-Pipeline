@@ -172,7 +172,10 @@ The most two common tool for trimmig are "fastp and trimmomatic" in our case we 
         #make new directory 
         mkdir data
 
-        #navigate to data
+        #make new directory for trimmed data
+        mkdir trimmedData  
+
+        #navigate to the directory where the data are located
         cd data
 
         #trimming data with fastp(ancestral)
@@ -285,13 +288,5 @@ will generate a '.html' file which contains a detailed report about the sequence
 * Adapter content: identify the extend of adapter contamination of the sequence data. After making FastQC report, we notice that our data need to be filtered or trimming step.
 for more detailed information about FastQC result  
 
-**Trimmig with fastp**
 
-  
-
-    #run fastqc on the trimmed result file, which will result HTML report
-    fastqc SRR030834_trimmed.fastq
-
-    #run multiqc
-    multiqc .
 
