@@ -257,3 +257,11 @@ As we are working on many samples at once, we will run "multiqc", which is a too
 ![fastqc_per_sequence_gc_content_plot](https://github.com/user-attachments/assets/1f5919c7-f6ff-4e1d-8794-53efc9625220)
 ![fastqc_per_base_n_content_plot](https://github.com/user-attachments/assets/1034ac8c-f912-454c-92d1-c18077cb56f6)
 ![fastqc_sequence_duplication_levels_plot](https://github.com/user-attachments/assets/4ffbc9d1-f5d3-41b4-9e55-5df7e8eba79a)
+
+## Genome Assembly
+Sequencing technologies generates short fragments of DNA called 'reads', genome assembly process is for reconstructing the complete sequence of genome smaller fragments of DNA, the aim is to arrange these fragments in the correct order and orientation to produce a representation of the organism’s genome.(https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/genome-assembly)
+
+
+
+
+
