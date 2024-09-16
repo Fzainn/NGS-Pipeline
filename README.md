@@ -120,7 +120,6 @@ Downloading FASTQ file to be well-organized, create the directory "fastqs" and d
     #decompress fastq data for further steps
     gzip -d data.fastq.gz
 
-
 ## Fastp Installation by Conda
 Conda is an open-source package management system tool for bioinformatics, to be more informed look here(https://docs.conda.io/en/latest/), but substantially, conda has channels for storing and downloading tools and packages, so after installing conda, we will install conda channels if needed. for more reusability, organization and version control make an isolated environment for each package/tool to prevent any errors or conflicts with the base of conda environment (it is optional but highly recommended to create a separate environment). have a look at "fastp" usage (https://open.bioqueue.org/home/knowledge/showKnowledge/sig/fastp)
 Alternatively, you can just download "fastp" manualy from here(https://anaconda.org/bioconda/fastp), but it is recommended to install conda as we will set up more tools and packages in further analysis.
@@ -169,23 +168,23 @@ The most two common tool for trimmig are "fastp and trimmomatic" in our case we 
 * we do not have information about the adapters used in dataset used in this pipeline and "fastp" automaticaly detects and removes adapters based on the data without knowing the used adapters.
 * "fastp" faster and more effecient, user-friendly with automatic optimization and fewer parameters and doesn’t require detailed configurations.
 
-        #make new directory 
-        mkdir data
-
-        #make new directory for trimmed data
-        mkdir trimmedData  
-
-        #navigate to the directory where the data are located
-        cd data
-
-        #trimming data with fastp(ancestral)
-        fastp --detect_adapter_for_pe --overrepresentation_analysis --correction --cut_right --thread 2 --html trimmedData/anc.fastp.html --json trimmedData/anc.fastp.json -i anc_R1.fastq.gz -I anc_R2.fastq.gz -         o trimmedData/anc_R1.fastq.gz -O trimmedData/anc_R2.fastq.gz
-
-        #trimming data with fastp(evolved sample1)
-        fastp --detect_adapter_for_pe --overrepresentation_analysis --correction --cut_right --thread 2 --html trimmedData/evol1.fastp.html --json trimmedData/evol1.fastp.json -i evol1_R1.fastq.gz -I                     evol1_R2.fastq.gz -o trimmedData/evol1_R1.fastq.gz -O trimmedData/evol1_R2.fastq.gz
-
-        #trimming data with fastp(evolved sample2)
-        fastp --detect_adapter_for_pe --overrepresentation_analysis --correction --cut_right --thread 2 --html trimmedData/evol2.fastp.html --json trimmedData/evol2.fastp.json -i evol2_R1.fastq.gz -I                     evol2_R2.fastq.gz -o trimmedData/evol2_R1.fastq.gz -O trimmedData/evol2_R2.fastq.gz
+      #make new directory 
+      mkdir data
+    
+      #make new directory for trimmed data
+      mkdir trimmedData  
+    
+      #navigate to the directory where the data are located
+      cd data
+    
+      #trimming data with fastp(ancestral)
+      fastp --detect_adapter_for_pe --overrepresentation_analysis --correction --cut_right --thread 2 --html trimmedData/anc.fastp.html --json trimmedData/anc.fastp.json -i anc_R1.fastq.gz -I anc_R2.fastq.gz -o        trimmedData/anc_R1.fastq.gz -O trimmedData/anc_R2.fastq.gz
+    
+      #trimming data with fastp(evolved sample1)
+      fastp --detect_adapter_for_pe --overrepresentation_analysis --correction --cut_right --thread 2 --html trimmedData/evol1.fastp.html --json trimmedData/evol1.fastp.json -i evol1_R1.fastq.gz -I                     evol1_R2.fastq.gz -o trimmedData/evol1_R1.fastq.gz -O trimmedData/evol1_R2.fastq.gz
+    
+      #trimming data with fastp(evolved sample2)
+      fastp --detect_adapter_for_pe --overrepresentation_analysis --correction --cut_right --thread 2 --html trimmedData/evol2.fastp.html --json trimmedData/evol2.fastp.json -i evol2_R1.fastq.gz -I                     evol2_R2.fastq.gz -o trimmedData/evol2_R1.fastq.gz -O trimmedData/evol2_R2.fastq.gz
   
 * --detect_adapter_for_pe: by default the auto-detection for adapter is for single-end data only. so in this case we need to turn on paired-end option but put that in mind specifies PE optionmay slow the performance and increase time of fastp since it will do additional analysis to identify and remove adapter. good to know it results a cleaner output as it is improve the accuracy of the overlap analysis and overall quality for data.
 * overrepresentation_analysis: for identifying potentail PCR duplication.
@@ -195,56 +194,10 @@ The most two common tool for trimmig are "fastp and trimmomatic" in our case we 
 * --html: generating an html report showing results of trimming
 * --json: json files for record-keeping and furthur analysis
 * trimmedData/: the directory where the results will be saved
-
   
-
-  
-
-    
-    
-
-    
-    
-
-
-
-
-
-
- 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-Post-Sequencing quality
-
+FastQC
 Post-sequence quality check must be performed to assess the read quality to ensure that there are no back-ground noises, the data looks good and there is no biases leads to inacurrate results. FASTQC is the     most common programm use to check the quality of the sequence it is generate summary and simple graphical reports that show an overall idea about the quality of the raw data
 
-   
    ### downloading fastqc tool
     wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.0.zip
 
@@ -269,8 +222,14 @@ Post-sequence quality check must be performed to assess the read quality to ensu
     #for testing the fastqc, if the path set correctly, it will show help instructions
     fasqc -h
 
-    #quality control
-    fastqc SRR030834.fastq
+    #create new directory for fastqc results
+    mkdir fastqc-trimmed
+
+    #navigate to the directory where the data are trimmed
+    cd trimmedData
+
+    #run the following command in all fastq files, "-o" specifies the output directory where FastQC will store its results, "*.fastq.gz" this is a wildcard that matches all fastq files in the navigated directory.
+    fastqc -o fastqc-trimmed/ *.fastq.gz
 
 ## FastQC result 
 will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
@@ -286,7 +245,9 @@ will generate a '.html' file which contains a detailed report about the sequence
 * Sequence duplication levels: high sequence duplication level indicating issues with PCR amplification biase or adapter containation.
 
 * Adapter content: identify the extend of adapter contamination of the sequence data. After making FastQC report, we notice that our data need to be filtered or trimming step.
-for more detailed information about FastQC result  
+for more detailed information about FastQC result
+
+For more details about FastQC report look here (https://mugenomicscore.missouri.edu/PDF/FastQC_Manual.pdf)
 
 
 
