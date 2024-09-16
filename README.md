@@ -260,6 +260,18 @@ As we are working on many samples at once, we will run "multiqc", which is a too
 
 ## Genome Assembly
 Sequencing technologies generates short fragments of DNA called 'reads', genome assembly process is for reconstructing the complete sequence of genome smaller fragments of DNA, the aim is to arrange these fragments in the correct order and orientation to produce a representation of the organism’s genome.(https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/genome-assembly)
+we will create reference genome from ancestral samples, becuase of:
+* less contaminated: ancestral samples are less likely to be contaminated, which can lead to errors in genome assembly
+* preserved genetic diversity
+* identification of ancient variants.
+* resolve ambiguities in assembly
+look here for more info(https://www.nature.com/articles/s41559-022-01956-z#:~:text=Reconstructed%20ancestral%20genomes%20are%20similar,in%20silico%20reconstructions%20when%20available.) (https://research.pasteur.fr/fr/publication/reconstruction-of-hundreds-of-reference-ancestral-genomes-across-the-eukaryotic-kingdom/)
+
+## SPAdes 
+we will use 'SPAdes' as it is powerful genome assembler and It's frequently used for bacterial genomes due to its ability to handle small genomes efficiently
+
+    #download SPAdes 
+    
 
 
 
