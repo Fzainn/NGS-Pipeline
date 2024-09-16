@@ -232,22 +232,25 @@ Post-sequence quality check must be performed to assess the read quality to ensu
     fastqc -o fastqc-trimmed/ *.fastq.gz
 
 ## FastQC result 
-will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign, which is;
+will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign. For more details about FastQC report look here (https://mugenomicscore.missouri.edu/PDF/FastQC_Manual.pdf)
 
-* Per base sequence quality: this ia show box plots of the quality distributions on each position across all bases of the reads, the background graph is divided into three regions representing the quality score, the green region (Q>20) are verry good, the orange region (20<Q<28) are acceptable, the red region (Q<20) are poor, in our case, we have sequence read’s score less than 20 
+## MultiQC
+As we are working on many samples at once, we will run "multiqc", which is a tool used to aggregate and summarize results from versious quality control samples instead of reviewing the results from each samples one by one, multiQC compiles all these results into one easy-to-read report.
 
-* Per sequence quality score: heatmap shows the quality score across different tiles of the sequencing chip with coloring code indicating the QS the colors ranges from green(high quality) to red(lowquality), if there are low quality score thats because of physical defetcs, issues with the sequencing chemistry or problem with sample preparation, so it should be filtered out.
+    #download multiQC
+    conda install -c bioconda multiqc
 
- * per base sequence content: provide detailed view of the nucleotides compositions at each base position and this identify if there any biases in base position,   there are four colored lines representing the persentage of each base " A in green, T in red, G in black, and C in blue " it will be a good read if the lines are  relatively flat to each other, in our case the per base sequence content have warning sing that should be filtered.
+    #navigate to the directory where fastqc results are stored
+    cd fastqc-trimmed
 
-* Per sequence GC content: we have two curves, blue curve that represent the normal distribution of the GC content in the sequence reads, and the purple curve represents the up-normal distribution of the GC content.
+    #run multiqc to combine all fastqc reports
+    multiqc .
+    
+    
 
-* Sequence duplication levels: high sequence duplication level indicating issues with PCR amplification biase or adapter containation.
 
-* Adapter content: identify the extend of adapter contamination of the sequence data. After making FastQC report, we notice that our data need to be filtered or trimming step.
-for more detailed information about FastQC result
+![fastqc_sequence_counts_plot](https://github.com/user-attachments/assets/925a04fc-d42f-4995-875f-60fc4662588b)
 
-For more details about FastQC report look here (https://mugenomicscore.missouri.edu/PDF/FastQC_Manual.pdf)
-
+![fastqc_per_sequence_quality_scores_plot](https://github.com/user-attachments/assets/c7728f87-6e18-4a8b-91ba-dfb1c5494187)
 
 
