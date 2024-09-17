@@ -268,7 +268,7 @@ we will create reference genome from ancestral samples, becuase of:
   
 look here for more info(https://www.nature.com/articles/s41559-022-01956-z#:~:text=Reconstructed%20ancestral%20genomes%20are%20similar,in%20silico%20reconstructions%20when%20available.) (https://research.pasteur.fr/fr/publication/reconstruction-of-hundreds-of-reference-ancestral-genomes-across-the-eukaryotic-kingdom/)
 
-## SPAdes 
+SPAdes and Quast
 we will use 'SPAdes' as it is powerful genome assembler and It's frequently used for bacterial genomes due to its ability to handle small genomes efficiently
 
     #download SPAdes 
