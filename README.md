@@ -264,7 +264,8 @@ we will create reference genome from ancestral samples, becuase of:
 * less contaminated: ancestral samples are less likely to be contaminated, which can lead to errors in genome assembly
 * preserved genetic diversity
 * identification of ancient variants.
-* resolve ambiguities in assembly
+* resolve ambiguities in assembly.
+  
 look here for more info(https://www.nature.com/articles/s41559-022-01956-z#:~:text=Reconstructed%20ancestral%20genomes%20are%20similar,in%20silico%20reconstructions%20when%20available.) (https://research.pasteur.fr/fr/publication/reconstruction-of-hundreds-of-reference-ancestral-genomes-across-the-eukaryotic-kingdom/)
 
 ## SPAdes 
