@@ -268,10 +268,26 @@ we will create reference genome from ancestral samples, becuase of:
   
 look here for more info(https://www.nature.com/articles/s41559-022-01956-z#:~:text=Reconstructed%20ancestral%20genomes%20are%20similar,in%20silico%20reconstructions%20when%20available.) (https://research.pasteur.fr/fr/publication/reconstruction-of-hundreds-of-reference-ancestral-genomes-across-the-eukaryotic-kingdom/)
 
-# SPAdes and Quast
-we will use 'SPAdes' as it is powerful genome assembler and It's frequently used for bacterial genomes due to its ability to handle small genomes efficiently
+## SPAdes and Quast
+'SPAdes' it is powerful genome assembler and It's frequently used for bacterial genomes due to its ability to handle small genomes efficiently.(https://ablab.github.io/spades/)
+'Quast' assess the quality of genome assemblies.(https://quast.sourceforge.net/docs/manual.html)
 
-    #download SPAdes 
+    #downloading SPAdes, Quast and creating new environment
+    conda create -n assembly spades quast
+
+    #activate conda environment
+    conda activate assembly
+
+    #create new directory for assemblies
+    mkdir assembly
+
+    #navigate to the trimmed data directory
+    cd trimmedData
+
+    #run spades
+    spades.py -1 anc_R1.fastq.gz -2 anc_R2.fastq.gz -o assembly
+
+    
     
 
 
