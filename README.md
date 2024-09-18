@@ -270,7 +270,7 @@ look here for more info(https://www.nature.com/articles/s41559-022-01956-z#:~:te
 
 ## SPAdes and Quast
 'SPAdes' it is powerful genome assembler and It's frequently used for bacterial genomes due to its ability to handle small genomes efficiently.(https://ablab.github.io/spades/)
-'Quast' assess the quality of genome assemblies.(https://quast.sourceforge.net/docs/manual.html). we will run quast on the two scaffolds.fasta files to compare the results.
+'Quast' assess the quality of genome assemblies. we will run quast on the two scaffolds.fasta files to compare the results.
 Note: Spades runs multiple k-mer sizes by default since it generates second/another fasta file depends on the length of the reads.
 
     #downloading SPAdes, Quast and creating new environment
@@ -294,11 +294,15 @@ Note: Spades runs multiple k-mer sizes by default since it generates second/anot
     
 
 ![Screenshot (179)](https://github.com/user-attachments/assets/1b6a15eb-e646-4b65-b08d-0c12c7b98ffd)
+an overview of key assembly statistics for two scaffolds fasta files.
 ![Screenshot (182)](https://github.com/user-attachments/assets/2b79b2ff-3a22-46f8-8504-f443a23d23bf)
 ![Screenshot (181)](https://github.com/user-attachments/assets/ea806291-ab41-45de-b0f8-a46cdccc7fa3)
 ![Screenshot (180)](https://github.com/user-attachments/assets/6a547989-076c-41f7-8ef3-1d93d68877f4)
 ![Screenshot (184)](https://github.com/user-attachments/assets/b9c5020e-773c-41ea-ac40-eae31fa11790)
 ![Screenshot (183)](https://github.com/user-attachments/assets/a5c1b1e6-875a-4e38-9573-1f70ee6f319d)
+
+By conclusion, assembly-scaffolds and K77-scaffolds represents to be very similar across all metrics: contig lengths, GC content, and coverage depth as well the key statistics.
+For more details about Quast report (https://quast.sourceforge.net/docs/manual.html)
 
 
 
