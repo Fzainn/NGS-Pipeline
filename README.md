@@ -292,16 +292,15 @@ Note: Spades runs multiple k-mer sizes by default since it generates second/anot
     quast -o data/assembly assembly/scaffolds.fasta assembly/K77/scaffolds.fasta 
 
     
-
-![Screenshot (179)](https://github.com/user-attachments/assets/1b6a15eb-e646-4b65-b08d-0c12c7b98ffd)
 an overview of key assembly statistics for two scaffolds fasta files.
+![Screenshot (179)](https://github.com/user-attachments/assets/1b6a15eb-e646-4b65-b08d-0c12c7b98ffd)
 ![Screenshot (182)](https://github.com/user-attachments/assets/2b79b2ff-3a22-46f8-8504-f443a23d23bf)
 ![Screenshot (181)](https://github.com/user-attachments/assets/ea806291-ab41-45de-b0f8-a46cdccc7fa3)
 ![Screenshot (180)](https://github.com/user-attachments/assets/6a547989-076c-41f7-8ef3-1d93d68877f4)
 ![Screenshot (184)](https://github.com/user-attachments/assets/b9c5020e-773c-41ea-ac40-eae31fa11790)
 ![Screenshot (183)](https://github.com/user-attachments/assets/a5c1b1e6-875a-4e38-9573-1f70ee6f319d)
 
-By conclusion, assembly-scaffolds and K77-scaffolds represents to be very similar across all metrics: contig lengths, GC content, and coverage depth as well the key statistics.
+By conclusion, assembly-scaffolds and K77-scaffolds represents to be very similar across all metrics: contig lengths, GC content, and coverage depth as well the key statistics as the dataset is high quality, The assembly methods are robust and reliable but this similarity doesn’t gaurantee our data is perfect and the report results is significant there could be subtle differences specially we was creating the referance genome from ancestral paired-end raw data, so we will do further analysis such as(alignment, variant calling, annotation) compared to evolved samples to see the variations.  
 For more details about Quast report (https://quast.sourceforge.net/docs/manual.html)
 
 
