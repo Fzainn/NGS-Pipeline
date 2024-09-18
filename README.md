@@ -270,7 +270,8 @@ look here for more info(https://www.nature.com/articles/s41559-022-01956-z#:~:te
 
 ## SPAdes and Quast
 'SPAdes' it is powerful genome assembler and It's frequently used for bacterial genomes due to its ability to handle small genomes efficiently.(https://ablab.github.io/spades/)
-'Quast' assess the quality of genome assemblies.(https://quast.sourceforge.net/docs/manual.html)
+'Quast' assess the quality of genome assemblies.(https://quast.sourceforge.net/docs/manual.html). we will run quast on the two scaffolds.fasta files to compare the results.
+Note: Spades runs multiple k-mer sizes by default since it generates second/another fasta file depends on the length of the reads.
 
     #downloading SPAdes, Quast and creating new environment
     conda create -n assembly spades quast
