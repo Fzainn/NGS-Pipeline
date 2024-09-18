@@ -287,9 +287,17 @@ look here for more info(https://www.nature.com/articles/s41559-022-01956-z#:~:te
     #run spades
     spades.py -1 anc_R1.fastq.gz -2 anc_R2.fastq.gz -o assembly
 
-    
+    #run Quast '-o' specifies te directory where quast’s results will be saved, and specifies the directory for two scaffolds.fasta files
+    quast -o data/assembly assembly/scaffolds.fasta assembly/K77/scaffolds.fasta 
+
     
 
+![Screenshot (179)](https://github.com/user-attachments/assets/1b6a15eb-e646-4b65-b08d-0c12c7b98ffd)
+![Screenshot (182)](https://github.com/user-attachments/assets/2b79b2ff-3a22-46f8-8504-f443a23d23bf)
+![Screenshot (181)](https://github.com/user-attachments/assets/ea806291-ab41-45de-b0f8-a46cdccc7fa3)
+![Screenshot (180)](https://github.com/user-attachments/assets/6a547989-076c-41f7-8ef3-1d93d68877f4)
+![Screenshot (184)](https://github.com/user-attachments/assets/b9c5020e-773c-41ea-ac40-eae31fa11790)
+![Screenshot (183)](https://github.com/user-attachments/assets/a5c1b1e6-875a-4e38-9573-1f70ee6f319d)
 
 
 
