@@ -304,5 +304,21 @@ By conclusion, assembly-scaffolds and K77-scaffolds represents to be very simila
 For more details about Quast report (https://quast.sourceforge.net/docs/manual.html)
 
 
+## Alignment 
+we will align the reads(evolved data) against reference genome(created from ancestral data), before mapping step we need to index our reference genome as its improve the efficiency, speed, and accuracy of the read mapping process without indexing, the read mapper would need to scan the entire reference genome for every read, which would be computationally expensive and time-consuming.
+will install samtools for interacting and analysing bam files, bwa the aligner used in mapping the reads against the reference genome, and qualimap used for quality control of mapped sequencing data.
+
+
+    #installations and create new environment
+    conda create --yes -n mapping samtools bwa qualimap r-base
+
+    #activate the environment
+    conda activate mapping
+
+    #indexing
+    bwa index scaffolds.fasta
+    
+
+
 
 
