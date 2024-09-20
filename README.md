@@ -334,6 +334,27 @@ After alignment/mapping step with paired-end sometimes SAM flags (bitwise values
 
 * use 'fixmate' to fix any errors and compress to BAM
 * sort by name
+
+        #sort by name. 'sort -n': sort SAM by read name, it is required for 'fixmate' for ensuring paired-end reads are next to each other
+        #'-O' specifies output format as sam, '|' this pipe for passing the sorted sam file from the first command part to the second part without intermediate file
+        # 'samtools fixmate' for cleaning up any errors, '-m' ensure additional fields are included to the output such as('MC' mate coordinates, 'TLEN' template length, '-O bam' specifies the output file as bam
+        #'-' tells 'fixmate' to take the input file from the previous command "evol1.sam', 'rm evol1.sam' remove uneeded file
+        samtools sort -n -O sam evol1.sam | samtools fixmate -m -O bam - evol1.fixmate.bam rm 
+
+
+        #remove evol1.sam file as it is not needed
+        rm evol1.sam
+  
+        #sort bam file in order
+        samtools sort -O bam -o evol1.sorted.bam evol1.fixmate.bam
+
+        #remove fixmate file to save space
+        rm evol1.fixmate.bam
+
+      
+  
+    
+          
     
 
 
