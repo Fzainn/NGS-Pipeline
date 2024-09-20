@@ -44,7 +44,8 @@ Real-time analysis in sequencing technologies stores the individual base call da
 
 (SAM files) : sequence alignment map is the most basic human readable text-based format,it is commonly used for storing the biological sequence aligned to the reference genome.
 
-(BAM files) : binary alignment map binaru version of bam file is desgined for more efficient storage, retrieval and processing of aligned sequence data.  
+(BAM files) : binary alignment map binary version of bam file is desgined for more efficient storage, retrieval and processing of aligned sequence data.
+for more information about sam and bam files format (https://samtools.github.io/hts-specs/SAMv1.pdf)
 
 
 
@@ -314,9 +315,30 @@ will install samtools for interacting and analysing bam files, bwa the aligner u
 
     #activate the environment
     conda activate mapping
-
+    
+    #navigate to trimmedData directory
+    cd trimmedData
+    
+    #make new directory for mappings results
+    mkdir mappings
+    
     #indexing
     bwa index scaffolds.fasta
+
+    #mapping the evolved samples to reference genome(we just created) with bwa
+    bwa mem assemblyRef/scaffolds.fasta evol1_R1.fastq.gz evol1_R2.fastq.gz > mapping/evol1.sam 
+    bwa mem assemblyRef/scaffolds.fasta evol2_R1.fastq.gz evol2_R2.fastq.gz > mapping/evol2.sam 
+
+## BAM formatting and fixing SAM flags
+After alignment/mapping step with paired-end sometimes SAM flags (bitwise values used to describe the characteristics of read and it’s alignment) can be wrong, in this case we use 'SAMtools' to fix this problem, to make sure paired-end reads relationships are correctly represented. and then compress SAM files to BAM to reduce their size for faster and smoother analysis. so we will performe three post-alignment steps:
+    * use 'fixmate' to fix any errors and compress to BAM
+    * sort by name
+    
+
+
+
+
+    
     
 
 
