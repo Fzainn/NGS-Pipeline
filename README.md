@@ -331,8 +331,9 @@ will install samtools for interacting and analysing bam files, bwa the aligner u
 
 ## BAM formatting and fixing SAM flags
 After alignment/mapping step with paired-end sometimes SAM flags (bitwise values used to describe the characteristics of read and it’s alignment) can be wrong, in this case we use 'SAMtools' to fix this problem, to make sure paired-end reads relationships are correctly represented. and then compress SAM files to BAM to reduce their size for faster and smoother analysis. so we will performe three post-alignment steps:
-    * use 'fixmate' to fix any errors and compress to BAM
-    * sort by name
+
+* use 'fixmate' to fix any errors and compress to BAM
+* sort by name
     
 
 
