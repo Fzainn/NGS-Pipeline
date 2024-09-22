@@ -339,7 +339,8 @@ After alignment/mapping step with paired-end sometimes SAM flags (bitwise values
         #'-O' specifies output format as sam, '|' this pipe for passing the sorted sam file from the first command part to the second part without intermediate file
         # 'samtools fixmate' for cleaning up any errors, '-m' ensure additional fields are included to the output such as('MC' mate coordinates, 'TLEN' template length, '-O bam' specifies the output file as bam
         #'-' tells 'fixmate' to take the input file from the previous command "evol1.sam', 'rm evol1.sam' remove uneeded file
-        samtools sort -n -O sam evol1.sam | samtools fixmate -m -O bam - evol1.fixmate.bam rm 
+        #Evol1
+        samtools sort -n -O sam evol1.sam | samtools fixmate -m -O bam - evol1.fixmate.bam 
 
 
         #remove evol1.sam file as it is not needed
@@ -350,6 +351,11 @@ After alignment/mapping step with paired-end sometimes SAM flags (bitwise values
 
         #remove fixmate file to save space
         rm evol1.fixmate.bam
+
+
+       #Evol2
+          
+     
 
 
 ## Remove Duplicates
