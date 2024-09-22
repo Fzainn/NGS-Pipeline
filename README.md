@@ -372,7 +372,14 @@ These statistics shows that:
 * This BAM file contains 1,619,698 reads, of which 97.73% are mapped to the reference genome.
 * The data is paired-end, with most pairs (96.31%) being properly paired.
 * A small percentage (0.88%) of reads are singletons, and a small number of reads have mates mapped to a different chromosome.
-* there are no duplicates as expected after removing them above by 'samtools markdup'
+* there are no duplicates as expected after removing them above by 'samtools markdup'                                                    
+
+According to this statistics, there are some mates mapped to different chromosomes or contigs also known as(discordnat read pairs) can occur for several reasons:
+* Structural variations ( translocations, inversions,duplications)
+* chimeric DNA fragments: During library  preparation, DNA fragments from different chromosomes may accidentally ligated togethere, leading to chimeric reads.
+* Sequencing or Assembly Errors
+* Gene Duplications and paralogous regions: in regions where two or more genes are similar, reads can map to different contigs because of the aligner may split them between the most similar locations
+* discordnat read pairs can be usefull in SVs detection, cancer genomics, genome assembly improvement, Evolutionary studies.
 
     
 
