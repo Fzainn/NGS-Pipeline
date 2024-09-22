@@ -351,6 +351,22 @@ After alignment/mapping step with paired-end sometimes SAM flags (bitwise values
         #remove fixmate file to save space
         rm evol1.fixmate.bam
 
+
+## Remove Duplicates
+During library preparation step in NGS, polymerase chain reaction(PCR) is used to amplify DNA, this preduce multiple copies of the same DNA fragment(PCR duplicates) this is not a real biological data that may lead to biases in furthur analysis, so we are going to remove it
+
+    #remove duplicates, '-r' to remove dupicates, '-S' handle supplementary alignments 
+    samtools markdup -r -S evol1.sorted.bam evol1.sorted.dedup.bam 
+
+
+    #remove the original data to safe space
+    rm evol1.sorted.bam  
+
+    #statistics overview
+    samtools flagstat evol1.sorted.dedup.bam
+
+    
+
       
   
     
