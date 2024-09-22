@@ -366,6 +366,15 @@ During library preparation step in NGS, polymerase chain reaction(PCR) is used t
     samtools flagstat evol1.sorted.dedup.bam
 
     
+![Screenshot (185)](https://github.com/user-attachments/assets/dd7ab278-27e7-4ad4-a815-6d97d2a4c94c)
+
+These statistics shows that:
+* This BAM file contains 1,619,698 reads, of which 97.73% are mapped to the reference genome.
+* The data is paired-end, with most pairs (96.31%) being properly paired.
+* A small percentage (0.88%) of reads are singletons, and a small number of reads have mates mapped to a different chromosome.
+* there are no duplicates as expected after removing them above by 'samtools markdup'
+
+    
 
       
   
