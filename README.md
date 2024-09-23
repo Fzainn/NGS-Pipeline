@@ -354,14 +354,23 @@ After alignment/mapping step with paired-end sometimes SAM flags (bitwise values
 
 
        #Evol2
-          
-     
+       samtools sort -n -O sam evol2.sam | samtools fixmate -m -O bam - evol2.fixmate.bam
 
+       #remove evol2.sam
+       rm evol2.sam
+
+       #sort bam file in order
+       samtools sort -O bam -o evol2.sorted.bam evol2.fixmate.bam
+  
+       #remove fixmate file
+       rm evol2.fixmate.bam 
+          
 
 ## Remove Duplicates
 During library preparation step in NGS, polymerase chain reaction(PCR) is used to amplify DNA, this preduce multiple copies of the same DNA fragment(PCR duplicates) this is not a real biological data that may lead to biases in furthur analysis, so we are going to remove it
 
-    #remove duplicates, '-r' to remove dupicates, '-S' handle supplementary alignments 
+    #Evol1 
+    #remove duplicates, '-r' to remove dupicates, '-S' handle supplementary alignments
     samtools markdup -r -S evol1.sorted.bam evol1.sorted.dedup.bam 
 
 
@@ -371,7 +380,7 @@ During library preparation step in NGS, polymerase chain reaction(PCR) is used t
     #statistics overview
     samtools flagstat evol1.sorted.dedup.bam
 
-    
+
 ![Screenshot (185)](https://github.com/user-attachments/assets/dd7ab278-27e7-4ad4-a815-6d97d2a4c94c)
 
 These statistics shows that:
@@ -386,6 +395,20 @@ According to this statistics, there are some mates mapped to different chromosom
 * Sequencing or Assembly Errors
 * Gene Duplications and paralogous regions: in regions where two or more genes are similar, reads can map to different contigs because of the aligner may split them between the most similar locations
 * discordnat read pairs can be usefull in SVs detection, cancer genomics, genome assembly improvement, Evolutionary studies.
+
+        
+      #Evol2  
+      #remove duplicates
+      samtools markdup -r -S evol2.sorted.bam evol2.sorted.dedup.bam
+
+      #remove the original data
+      rm evol2.sorted.bam
+
+      #statistics overview
+      samtools flagstat evol2.sorted.dedup.bam
+    
+![Screenshot (186)](https://github.com/user-attachments/assets/e16c1c92-d471-407e-b510-cac199f5661b)
+
 
     
 
