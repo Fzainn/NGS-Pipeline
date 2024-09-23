@@ -410,6 +410,20 @@ According to this statistics, there are some mates mapped to different chromosom
 ![Screenshot (186)](https://github.com/user-attachments/assets/e16c1c92-d471-407e-b510-cac199f5661b)
 
 
+From resulted bam files we can calculate the read depth at every position in the reference genome..., what is *read depth* ?
+*Read Depth* is the number of times a base at given position has been sequenced, indicating how many sequencing reads overlap a specific position on reference genome. the higher read depth the more confidence in variant calling.
+
+    #calculating read depth
+    samtools depth evol1.sorted.dedup.bam | gzip > evol1.depth.txt.gz
+
+    #Extract read depth for contig 20 (you can specifies any contig of interest)
+    zcat evol1.depth.txt.gz | egrep '^NODE_20_' | gzip > NODE_20.depth.txt.gz
+
+    
+
+    
+
+
     
 
       
