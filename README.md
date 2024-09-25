@@ -456,6 +456,22 @@ for more information about QualiMap(http://qualimap.conesalab.org/doc_html/index
 ![covNODE20](https://github.com/user-attachments/assets/bd117b49-2614-450f-ad9f-4488edb34e29)
 ![coverage_histogram_NODE20](https://github.com/user-attachments/assets/420e15ca-37a1-471c-a10b-3efcd5728ff4)
 
+
+
+## Variant calling
+Involving identyfing and characterizing genetic variants in DNA sequence data. a variant is the difference between the sample sequence and reference genome or transcriptome sequence that is considered to be meaningful.
+
+    #installing essential tools and creating new env
+    conda create --yes -n var samtools bamtools freebayes bedtools vcflib rtg-tools bcftools matplotlib
+
+    #activate env
+    conda activate var
+
+    #create directory for variant calling step
+    mkdir vars
+
+    
+
     
 
 
