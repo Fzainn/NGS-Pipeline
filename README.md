@@ -447,7 +447,9 @@ From resulted bam files we can calculate the read depth at every position in the
     plot(x[,2], x[,3], col = ifelse(x[,3] < 20,'red','black'), pch=19, xlab='postion', ylab='coverage')
     dev.off()
     
-    #use quil
+    #use QualiMap, provides review of mapped data, it will generate HTML report contains figures and plots that visualize the QC. for more information(http://qualimap.conesalab.org/doc_html/index.html)
+    qualimap bamqc -bam evol1.sorted.dedup.bam
+    qualimap bamqc -bam evol2.sorted.dedup.bam
 
     
 ![covNODE20](https://github.com/user-attachments/assets/bd117b49-2614-450f-ad9f-4488edb34e29)
