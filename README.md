@@ -419,7 +419,39 @@ From resulted bam files we can calculate the read depth at every position in the
     #Extract read depth for contig 20 (you can specifies any contig of interest)
     zcat evol1.depth.txt.gz | egrep '^NODE_20_' | gzip > NODE_20.depth.txt.gz
 
+    #open R in terminal
+    R
+
+    #Load necessary libraries
+    if(!require(ggplot2)) install.packages("ggplot2")
+
+    #call the package
+    library(ggplot2)
+
+    #Read the data
+    x <- read.table('NODE_20.depth.txt.gz", sep = "\t", header = FALSE, strip.white = TRUE)
+    colnames(x) <- c("contig", "position", "depth")
+
+
+    #calculate mean and standared devetian 
+    mean(x[,3])
+    sqrt(var(x[,3]))
     
+
+    # Create a line plot, coloring regions with coverage < 20 in red, and others in black
+    plot(x[,2], x[,3], col = ifelse(x[,3] < 20,'red','black'), pch=19, xlab='postion', ylab='coverage')
+    
+
+    # Save the plot to a file
+    png('covNODE20.png', width = 1200, height = 500)
+    plot(x[,2], x[,3], col = ifelse(x[,3] < 20,'red','black'), pch=19, xlab='postion', ylab='coverage')
+    dev.off()
+
+    ![covNODE20](https://github.com/user-attachments/assets/bd117b49-2614-450f-ad9f-4488edb34e29)
+    ![coverage_histogram_NODE20](https://github.com/user-attachments/assets/420e15ca-37a1-471c-a10b-3efcd5728ff4)
+
+    #use quil
+
 
     
 
