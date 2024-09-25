@@ -446,12 +446,12 @@ From resulted bam files we can calculate the read depth at every position in the
     png('covNODE20.png', width = 1200, height = 500)
     plot(x[,2], x[,3], col = ifelse(x[,3] < 20,'red','black'), pch=19, xlab='postion', ylab='coverage')
     dev.off()
-
-    ![covNODE20](https://github.com/user-attachments/assets/bd117b49-2614-450f-ad9f-4488edb34e29)
-    ![coverage_histogram_NODE20](https://github.com/user-attachments/assets/420e15ca-37a1-471c-a10b-3efcd5728ff4)
-
+    
     #use quil
 
+    
+![covNODE20](https://github.com/user-attachments/assets/bd117b49-2614-450f-ad9f-4488edb34e29)
+![coverage_histogram_NODE20](https://github.com/user-attachments/assets/420e15ca-37a1-471c-a10b-3efcd5728ff4)
 
     
 
