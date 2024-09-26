@@ -457,6 +457,21 @@ for more information about QualiMap(http://qualimap.conesalab.org/doc_html/index
 ![coverage_histogram_NODE20](https://github.com/user-attachments/assets/420e15ca-37a1-471c-a10b-3efcd5728ff4)
 
 
+*Sub-Selecting reads* Extracting a subset of sequencing reads from large dataset(BAM or FASTQ files)
+In the context of paired-end sequencing and read alignment, mapping quality plays a critical role in determining the reliability of the alignment of each read to the reference genome. while the mapping quality is important for understanding how well and how concordant and disconcordant the paired reads are.
+we will sub-selecting reads beased on *Quality mapping* which is, scores assigned to each aligned read indicating the confidence of the alignment of the read to the reference genome. and helping in filtering out low-quality alignments, lower values the less confidence in the read’s placement. for more information (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7727374/)
+*concordant read pair* Paire-end reads that align to the reference genome in the expected orientation and at the correct distance(insert size) from each other, one read should map to the forward and the other to the reverse, while the distance between the two reads (insert size) falls within the expected range defined during library preparation.
+*Discordant read pair* Paired-end reads do not align to the reference genome in the expected region, incorrect orientation as both read on the same strand or in the opposite strand. so the insert size is abnormal. Discordant read are very important is it is indicate potential structural variants such as(Indels, inversions and translocation). (https://www.researchgate.net/post/What-is-the-difference-between-concordant-pairs-singleton-read-and-discordant-mate-pairs)
+
+*Note* Concordant read pair is good quality for variant calling.
+
+## Sub-selecing
+Please do not forget that in each step, to activate the evnironment you are working on and navigate to the directory where the needed files are located.
+
+    # 'view' used to filter and convert SAM/BAM files. It allows you to view and extract specific alignments from BAM or SAM files, '-h' tells samtools to include the header, '-b' specifies the output to be in       bam file as by default it resulted as sam file. '-q 20' mapping quality filter, removes any read below 20.
+    samtools view -h -b -q 20 evol1.sorted.dedup.bam > evol1.sorted.dedup.q20.bam
+    samtools view -h -b -q 20 evol2.sorted.dedup.bam > evol2.sorted.dedup.q20.bam
+
 
 ## Variant calling
 Involving identyfing and characterizing genetic variants in DNA sequence data. a variant is the difference between the sample sequence and reference genome or transcriptome sequence that is considered to be meaningful.
@@ -466,9 +481,18 @@ Involving identyfing and characterizing genetic variants in DNA sequence data. a
 
     #activate env
     conda activate var
+    
+    #create an index file
+    samtools faidx assemblyRef/scaffolds.fasta
+
+    #create bam index file 
+    bamtools index -in mapping/evol1.sorted.dedup.q20.bam 
 
     #create directory for variant calling step
     mkdir vars
+
+    #freebayes
+    freebayes -p 1 -f assemblyRef/scaffolds.fasta mapping/evol1.sorted.dedup.q20.bam > vars/evol1.freebayes.vcf 
 
     
 
