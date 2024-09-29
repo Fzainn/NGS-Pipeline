@@ -491,8 +491,44 @@ Involving identyfing and characterizing genetic variants in DNA sequence data. a
     #create directory for variant calling step
     mkdir vars
 
-    #freebayes
+    #freebayes for variany callling
     freebayes -p 1 -f assemblyRef/scaffolds.fasta mapping/evol1.sorted.dedup.q20.bam > vars/evol1.freebayes.vcf 
+    
+
+    #compress for storage space reduction
+    bgzip evol1.freebayes.vcf
+
+    #indexing for efficient querying
+    tabix -p vcf evol1.freebayes.vcf.gz
+
+    #Calculate detailed statistics for variants with 'bcftools', '-F' specifies the reference genome in fasta format, '-s' all vcf files should be considered.
+    bcftools stats -F assemblyRef/scaffolds.fasta -s - vars/evol1.freebayes.vcf.gz > vars/evol1.freebayes.vcf.gz.stats
+
+    #create new plot directory
+    mkdir plots
+
+    #use stats file for making statistical plots
+    plot-vcfstats -p plots/ evol1.freebayes.vcf.gz.stats 
+
+    
+![indels 0](https://github.com/user-attachments/assets/7b885d6f-2d86-4e9d-8550-d9109478ed92)
+![substitutions 0](https://github.com/user-attachments/assets/6a5d5eb4-9ea1-450f-acd4-c4cab392385e)
+![vaf indel 0](https://github.com/user-attachments/assets/710d9d4c-b37b-4473-a161-d0b3f548185c)
+![vaf snv 0](https://github.com/user-attachments/assets/d94a9756-fe57-4ce3-9c6f-0ac10df66607)
+
+    #filter vcf to include q > 30 only 
+    rtg vcffilter -q 30 -i evol1.freebayes.vcf.gz -o evol1.freebayes.q30.vcf.gz
+
+    #more filtration to make vcf file only contains high-quality reads
+    zcat evol1.freebayes.vcf.gz | vcffilter -f "QUAL > 1 & AO > 0 & QUAL / AO > 10 & SAF > 0 & SAR > 0 & RPR > 1 & RPL > 1" | bgzip > evol1.freebayes.filtered.vcf.gz
+
+    
+
+
+
+    
+    
+    
 
     
 
