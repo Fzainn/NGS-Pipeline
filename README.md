@@ -45,7 +45,7 @@ Real-time analysis in sequencing technologies stores the individual base call da
 (SAM files) : sequence alignment map is the most basic human readable text-based format,it is commonly used for storing the biological sequence aligned to the reference genome.
 
 (BAM files) : binary alignment map binary version of bam file is desgined for more efficient storage, retrieval and processing of aligned sequence data.
-for more information about sam and bam files format (https://samtools.github.io/hts-specs/SAMv1.pdf)
+[for more information about sam and bam files format](https://samtools.github.io/hts-specs/SAMv1.pdf)
 
 
 
@@ -122,8 +122,8 @@ Downloading FASTQ file to be well-organized, create the directory "fastqs" and d
     gzip -d data.fastq.gz
 
 ## Fastp Installation by Conda
-Conda is an open-source package management system tool for bioinformatics, to be more informed look here(https://docs.conda.io/en/latest/), but substantially, conda has channels for storing and downloading tools and packages, so after installing conda, we will install conda channels if needed. for more reusability, organization and version control make an isolated environment for each package/tool to prevent any errors or conflicts with the base of conda environment (it is optional but highly recommended to create a separate environment). have a look at "fastp" usage (https://open.bioqueue.org/home/knowledge/showKnowledge/sig/fastp)
-Alternatively, you can just download "fastp" manualy from here(https://anaconda.org/bioconda/fastp), but it is recommended to install conda as we will set up more tools and packages in further analysis.
+Conda is an open-source package management system tool for bioinformatics, to be more informed look here(https://docs.conda.io/en/latest/), but substantially, conda has channels for storing and downloading tools and packages, so after installing conda, we will install conda channels if needed. for more reusability, organization and version control make an isolated environment for each package/tool to prevent any errors or conflicts with the base of conda environment (it is optional but highly recommended to create a separate environment).[have a look at "fastp" usage] (https://open.bioqueue.org/home/knowledge/showKnowledge/sig/fastp)
+Alternatively, you can just download "fastp" manualy from [here](https://anaconda.org/bioconda/fastp), but it is recommended to install conda as we will set up more tools and packages in further analysis.
 
     #download miniconda latset version
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -233,7 +233,7 @@ Post-sequence quality check must be performed to assess the read quality to ensu
     fastqc -o fastqc-trimmed/ *.fastq.gz
 
 ## FastQC result 
-will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign. For more details about FastQC report look here (https://mugenomicscore.missouri.edu/PDF/FastQC_Manual.pdf)
+will generate a '.html' file which contains a detailed report about the sequence data and .zip file, so how we determine if our data need to be filtered or trimmed? if we open the .html file, we will focus on graphs and plots that have warning sign. For more details about FastQC report look [here](https://mugenomicscore.missouri.edu/PDF/FastQC_Manual.pdf)
 
 ## MultiQC
 As we are working on many samples at once, we will run "multiqc", which is a tool used to aggregate and summarize results from versious quality control samples instead of reviewing the results from each samples one by one, multiQC compiles all these results into one easy-to-read report.
@@ -260,17 +260,17 @@ As we are working on many samples at once, we will run "multiqc", which is a too
 ![fastqc_sequence_duplication_levels_plot](https://github.com/user-attachments/assets/4ffbc9d1-f5d3-41b4-9e55-5df7e8eba79a)
 
 ## Genome Assembly
-Sequencing technologies generates short fragments of DNA called 'reads', genome assembly process is for reconstructing the complete sequence of genome smaller fragments of DNA, the aim is to arrange these fragments in the correct order and orientation to produce a representation of the organism’s genome.(https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/genome-assembly)
+Sequencing technologies generates short fragments of DNA called 'reads', genome assembly process is for reconstructing the complete sequence of genome smaller fragments of DNA, the aim is to arrange these fragments in the correct order and orientation to produce a representation of the organism’s genome.[genome assembly](https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/genome-assembly)
 we will create reference genome from ancestral samples, becuase of:
 * less contaminated: ancestral samples are less likely to be contaminated, which can lead to errors in genome assembly
 * preserved genetic diversity
 * identification of ancient variants.
 * resolve ambiguities in assembly.
   
-look here for more info(https://www.nature.com/articles/s41559-022-01956-z#:~:text=Reconstructed%20ancestral%20genomes%20are%20similar,in%20silico%20reconstructions%20when%20available.) (https://research.pasteur.fr/fr/publication/reconstruction-of-hundreds-of-reference-ancestral-genomes-across-the-eukaryotic-kingdom/)
+[look here for more info](https://www.nature.com/articles/s41559-022-01956-z#:~:text=Reconstructed%20ancestral%20genomes%20are%20similar,in%20silico%20reconstructions%20when%20available.) [here](https://research.pasteur.fr/fr/publication/reconstruction-of-hundreds-of-reference-ancestral-genomes-across-the-eukaryotic-kingdom/)
 
 ## SPAdes and Quast
-'SPAdes' it is powerful genome assembler and It's frequently used for bacterial genomes due to its ability to handle small genomes efficiently.(https://ablab.github.io/spades/)
+'SPAdes' it is powerful genome assembler and It's frequently used for bacterial genomes due to its ability to handle small genomes efficiently.[spades](https://ablab.github.io/spades/)
 'Quast' assess the quality of genome assemblies. we will run quast on the two scaffolds.fasta files to compare the results.
 Note: Spades runs multiple k-mer sizes by default since it generates second/another fasta file depends on the length of the reads.
 
@@ -302,7 +302,7 @@ an overview of key assembly statistics for two scaffolds fasta files.
 ![Screenshot (183)](https://github.com/user-attachments/assets/a5c1b1e6-875a-4e38-9573-1f70ee6f319d)
 
 By conclusion, assembly-scaffolds and K77-scaffolds represents to be very similar across all metrics: contig lengths, GC content, and coverage depth as well the key statistics as the dataset is high quality, The assembly methods are robust and reliable but this similarity doesn’t gaurantee our data is perfect and the report results is significant there could be subtle differences specially we was creating the referance genome from ancestral paired-end raw data, so we will do further analysis such as(alignment, variant calling, annotation) compared to evolved samples to see the variations.  
-For more details about Quast report (https://quast.sourceforge.net/docs/manual.html)
+[For more details about Quast report](https://quast.sourceforge.net/docs/manual.html)
 
 
 ## Alignment 
@@ -450,7 +450,7 @@ From resulted bam files we can calculate the read depth at every position in the
     #use QualiMap, provides review of mapped data, it will generate HTML report contains figures and plots that visualize the QC. 
     qualimap bamqc -bam evol1.sorted.dedup.bam
     qualimap bamqc -bam evol2.sorted.dedup.bam
-for more information about QualiMap(http://qualimap.conesalab.org/doc_html/index.html)
+[more about QualiMap](http://qualimap.conesalab.org/doc_html/index.html)
 
     
 ![covNODE20](https://github.com/user-attachments/assets/bd117b49-2614-450f-ad9f-4488edb34e29)
@@ -461,7 +461,7 @@ for more information about QualiMap(http://qualimap.conesalab.org/doc_html/index
 In the context of paired-end sequencing and read alignment, mapping quality plays a critical role in determining the reliability of the alignment of each read to the reference genome. while the mapping quality is important for understanding how well and how concordant and disconcordant the paired reads are.
 we will sub-selecting reads beased on *Quality mapping* which is, scores assigned to each aligned read indicating the confidence of the alignment of the read to the reference genome. and helping in filtering out low-quality alignments, lower values the less confidence in the read’s placement. for more information (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7727374/)
 *concordant read pair* Paire-end reads that align to the reference genome in the expected orientation and at the correct distance(insert size) from each other, one read should map to the forward and the other to the reverse, while the distance between the two reads (insert size) falls within the expected range defined during library preparation.
-*Discordant read pair* Paired-end reads do not align to the reference genome in the expected region, incorrect orientation as both read on the same strand or in the opposite strand. so the insert size is abnormal. Discordant read are very important is it is indicate potential structural variants such as(Indels, inversions and translocation). (https://www.researchgate.net/post/What-is-the-difference-between-concordant-pairs-singleton-read-and-discordant-mate-pairs)
+*Discordant read pair* Paired-end reads do not align to the reference genome in the expected region, incorrect orientation as both read on the same strand or in the opposite strand. so the insert size is abnormal. Discordant read are very important is it is indicate potential structural variants such as(Indels, inversions and translocation). [more here](https://www.researchgate.net/post/What-is-the-difference-between-concordant-pairs-singleton-read-and-discordant-mate-pairs)
 
 *Note* Concordant read pair is good quality for variant calling.
 
