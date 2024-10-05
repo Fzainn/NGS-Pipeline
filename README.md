@@ -522,6 +522,13 @@ Involving identyfing and characterizing genetic variants in DNA sequence data. a
     #more filtration to make vcf file only contains high-quality reads
     zcat evol1.freebayes.vcf.gz | vcffilter -f "QUAL > 1 & AO > 0 & QUAL / AO > 10 & SAF > 0 & SAR > 0 & RPR > 1 & RPL > 1" | bgzip > evol1.freebayes.filtered.vcf.gz
 
+
+##Genome Annotation
+Will use BUSCO (Benchmarking Universal Single-Copy Orthologs) is a tool that helps you assess the quality of your genome annotation. It does this by looking for specific genes that are expected to be present in all organisms of a particular group. [read more about it](https://academic.oup.com/bioinformatics/article/31/19/3210/211866?login=false). then we will use 'Agustus' that uses a combination of computational and statistical methods to predict the locations of genes within a DNA sequence. It is a popular tool for gene prediction in eukaryotic organisms(https://bioinf.uni-greifswald.de/augustus/).
+
+    #create new env and install busco and agustus
+    conda create --yes -n annos busco
+
     
 
 
