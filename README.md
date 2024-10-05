@@ -85,7 +85,7 @@ base calling step is performing directly after the sequencer machine output itâ€
 
 ## Source of the data
 Data used in this workflow from E.coli, evolved and ancestral raw data. two ancestral samples and four evolved samples(evolved from two different strains)
-you can download raw dataset from here (https://genomics.sschmeier.com/downloads)
+you can download raw dataset from [here](https://genomics.sschmeier.com/downloads)
 
 
 ## Scope and Objective
@@ -122,7 +122,7 @@ Downloading FASTQ file to be well-organized, create the directory "fastqs" and d
     gzip -d data.fastq.gz
 
 ## Fastp Installation by Conda
-Conda is an open-source package management system tool for bioinformatics, to be more informed look here(https://docs.conda.io/en/latest/), but substantially, conda has channels for storing and downloading tools and packages, so after installing conda, we will install conda channels if needed. for more reusability, organization and version control make an isolated environment for each package/tool to prevent any errors or conflicts with the base of conda environment (it is optional but highly recommended to create a separate environment).[have a look at "fastp" usage] (https://open.bioqueue.org/home/knowledge/showKnowledge/sig/fastp)
+Conda is an open-source package management system tool for bioinformatics, to be more informed look here(https://docs.conda.io/en/latest/), but substantially, conda has channels for storing and downloading tools and packages, so after installing conda, we will install conda channels if needed. for more reusability, organization and version control make an isolated environment for each package/tool to prevent any errors or conflicts with the base of conda environment (it is optional but highly recommended to create a separate environment).[have a look at "fastp" usage](https://open.bioqueue.org/home/knowledge/showKnowledge/sig/fastp)
 Alternatively, you can just download "fastp" manualy from [here](https://anaconda.org/bioconda/fastp), but it is recommended to install conda as we will set up more tools and packages in further analysis.
 
     #download miniconda latset version
@@ -267,7 +267,7 @@ we will create reference genome from ancestral samples, becuase of:
 * identification of ancient variants.
 * resolve ambiguities in assembly.
   
-[look here for more info](https://www.nature.com/articles/s41559-022-01956-z#:~:text=Reconstructed%20ancestral%20genomes%20are%20similar,in%20silico%20reconstructions%20when%20available.) [here](https://research.pasteur.fr/fr/publication/reconstruction-of-hundreds-of-reference-ancestral-genomes-across-the-eukaryotic-kingdom/)
+[look here for more info](https://www.nature.com/articles/s41559-022-01956-z#:~:text=Reconstructed%20ancestral%20genomes%20are%20similar,in%20silico%20reconstructions%20when%20available.) and [here](https://research.pasteur.fr/fr/publication/reconstruction-of-hundreds-of-reference-ancestral-genomes-across-the-eukaryotic-kingdom/)
 
 ## SPAdes and Quast
 'SPAdes' it is powerful genome assembler and It's frequently used for bacterial genomes due to its ability to handle small genomes efficiently.[spades](https://ablab.github.io/spades/)
