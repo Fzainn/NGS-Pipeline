@@ -122,7 +122,8 @@ Downloading FASTQ file to be well-organized, create the directory "fastqs" and d
     gzip -d data.fastq.gz
 
 ## Fastp Installation by Conda
-Conda is an open-source package management system tool for bioinformatics, to be more informed look here(https://docs.conda.io/en/latest/), but substantially, conda has channels for storing and downloading tools and packages, so after installing conda, we will install conda channels if needed. for more reusability, organization and version control make an isolated environment for each package/tool to prevent any errors or conflicts with the base of conda environment (it is optional but highly recommended to create a separate environment).[have a look at "fastp" usage](https://open.bioqueue.org/home/knowledge/showKnowledge/sig/fastp)
+Conda is an open-source package management system tool for bioinformatics, to be more informed look here(https://docs.conda.io/en/latest/), but substantially, conda has channels for storing and downloading tools and packages, so after installing conda, we will install conda channels if needed. for more reusability, organization and version control make an isolated environment for each package/tool to prevent any errors or conflicts with the base of conda environment (it is optional but highly recommended to create a separate environment).
+[have a look at "fastp" usage](https://open.bioqueue.org/home/knowledge/showKnowledge/sig/fastp)
 Alternatively, you can just download "fastp" manualy from [here](https://anaconda.org/bioconda/fastp), but it is recommended to install conda as we will set up more tools and packages in further analysis.
 
     #download miniconda latset version
@@ -461,7 +462,8 @@ From resulted bam files we can calculate the read depth at every position in the
 In the context of paired-end sequencing and read alignment, mapping quality plays a critical role in determining the reliability of the alignment of each read to the reference genome. while the mapping quality is important for understanding how well and how concordant and disconcordant the paired reads are.
 we will sub-selecting reads beased on *Quality mapping* which is, scores assigned to each aligned read indicating the confidence of the alignment of the read to the reference genome. and helping in filtering out low-quality alignments, lower values the less confidence in the read’s placement. for more information (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7727374/)
 *concordant read pair* Paire-end reads that align to the reference genome in the expected orientation and at the correct distance(insert size) from each other, one read should map to the forward and the other to the reverse, while the distance between the two reads (insert size) falls within the expected range defined during library preparation.
-*Discordant read pair* Paired-end reads do not align to the reference genome in the expected region, incorrect orientation as both read on the same strand or in the opposite strand. so the insert size is abnormal. Discordant read are very important is it is indicate potential structural variants such as(Indels, inversions and translocation). [more here](https://www.researchgate.net/post/What-is-the-difference-between-concordant-pairs-singleton-read-and-discordant-mate-pairs)
+*Discordant read pair* Paired-end reads do not align to the reference genome in the expected region, incorrect orientation as both read on the same strand or in the opposite strand. so the insert size is abnormal. Discordant read are very important is it is indicate potential structural variants such as(Indels, inversions and translocation). 
+[more here](https://www.researchgate.net/post/What-is-the-difference-between-concordant-pairs-singleton-read-and-discordant-mate-pairs)
 
 *Note* Concordant read pair is good quality for variant calling.
 
@@ -524,10 +526,22 @@ Involving identyfing and characterizing genetic variants in DNA sequence data. a
 
 
 ##Genome Annotation
-Will use BUSCO (Benchmarking Universal Single-Copy Orthologs) is a tool that helps you assess the quality of your genome annotation. It does this by looking for specific genes that are expected to be present in all organisms of a particular group. [read more about it](https://academic.oup.com/bioinformatics/article/31/19/3210/211866?login=false). then we will use 'Agustus' that uses a combination of computational and statistical methods to predict the locations of genes within a DNA sequence. It is a popular tool for gene prediction in eukaryotic organisms(https://bioinf.uni-greifswald.de/augustus/).
+Will use BUSCO (Benchmarking Universal Single-Copy Orthologs) is a tool that helps you assess the quality of your genome annotation. It does this by looking for specific genes that are expected to be present in all organisms of a particular group. [read more about it](https://academic.oup.com/bioinformatics/article/31/19/3210/211866?login=false). then we will use 'Agustus' that uses a combination of computational and statistical methods to predict the locations of genes within a DNA sequence. It is a popular tool for gene prediction in eukaryotic organisms[Augustus](https://bioinf.uni-greifswald.de/augustus/).
 
     #create new env and install busco and agustus
     conda create --yes -n annos busco
+
+    #activate env
+    conds activate annos
+
+    # create new directory
+    mkdir annotations
+
+    #make a copy of the busco configuration file into the current directory where have the permission to modify it
+    cp -r ~/miniconda3/envs/annos/config/ .
+
+    
+    
 
     
 
