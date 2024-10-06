@@ -537,8 +537,10 @@ Will use BUSCO (Benchmarking Universal Single-Copy Orthologs) is a tool that hel
     # create new directory
     mkdir annotations
 
-    #make a copy of the busco configuration file into the current directory where have the permission to modify it
-    cp -r ~/miniconda3/envs/annos/config/ .
+    #run busco, '-i' flag to specifies the input file. '-o' specifies the directory where the output file will be saved. '-1' specifies the lineage database will be used. '-m' specifies the mode of busco which       indicating that assessing the quality of genome assembly
+    busco -i ../assemblyRef/scaffolds.fasta -o new_annotations -l bacteria_odb10 -m geno
+
+    
 
     
     
