@@ -575,6 +575,30 @@ The total number of complete BUSCOs are 123 of the expected Ortholog genes were 
 ## Augustus
 for gene prediction we will use Augustus, which will implement hidden markov model for predection depends on the present state, which is in this case gene assembly [more knowledge about HMM](https://www.sciencedirect.com/topics/materials-science/markov-model)
 
+    #run augustus
+    augustus --progress=true --strand=both --species=E_coli_K12 ../assemblyRef/scaffolds.fasta > augustus.gff
+
+
+ ## Annotation 
+ Prokka is a gene annotation software tool for identifying coding sequences in prokaryotic genomes. [more Prokka!](https://github.com/tseemann/prokka)
+
+     #install prokka
+     conda create --yes -n prokka prokka
+
+     # Env activation
+     conda prokka activate
+
+     #run prokka
+     prokka --kingdom Bacteria --genus Escherichia --species coli --outdir annotation assemblyRef/scaffolds.fasta
+
+## Assembly Viewer
+we will use IGV for view assembly, SVs(vcf file), and genome annotation(gff)
+
+    #install igv
+    conda install --yes igv
+
+    
+
 
 
 
