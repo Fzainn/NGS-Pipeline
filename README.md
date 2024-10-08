@@ -526,7 +526,12 @@ Involving identyfing and characterizing genetic variants in DNA sequence data. a
 
 
 ##Genome Annotation
-Will use BUSCO (Benchmarking Universal Single-Copy Orthologs) is a tool that helps you assess the quality of your genome annotation. It does this by looking for specific genes that are expected to be present in all organisms of a particular group. [read more about it](https://academic.oup.com/bioinformatics/article/31/19/3210/211866?login=false). then we will use 'Agustus' that uses a combination of computational and statistical methods to predict the locations of genes within a DNA sequence. It is a popular tool for gene prediction in eukaryotic organisms[Augustus](https://bioinf.uni-greifswald.de/augustus/).
+Will use BUSCO (Benchmarking Universal Single-Copy Orthologs) is a tool that helps you assess the quality of your genome annotation. It does this by looking for specific genes that are expected to be present in all organisms of a particular group. [read more about it](https://busco.ezlab.org/busco_userguide.html). then we will use 'Agustus' that uses a combination of computational and statistical methods to predict the locations of genes within a DNA sequence. It is a popular tool for gene prediction in eukaryotic organisms[Augustus](https://bioinf.uni-greifswald.de/augustus/).
+*Why busco is important?* 
+    * As it is identifying missing genes, check if the important genes are present or not by flagging them.
+    * check fragmentation, if the genes are broken into pieces.
+    * Evaluate annotation quality, gives quantitative measure of how complete and accurate your annotation is.
+    
 
     #create new env and install busco and agustus
     conda create --yes -n annos busco
@@ -539,6 +544,28 @@ Will use BUSCO (Benchmarking Universal Single-Copy Orthologs) is a tool that hel
 
     #run busco, '-i' flag to specifies the input file. '-o' specifies the directory where the output file will be saved. '-1' specifies the lineage database will be used. '-m' specifies the mode of busco which       indicating that assessing the quality of genome assembly
     busco -i ../assemblyRef/scaffolds.fasta -o new_annotations -l bacteria_odb10 -m geno
+
+*A brief summary about the Busco’s output files:*
+Firstly, what is Orthologs? it is genes in different species that evolved from a common ancestral gene by the speciation and normally maintain the same function, genes inherited by the two species are called "Orthologs" if they continue performing the same function in both lineages. 
+
+* 'short_summary.txt': provides an overrview of genome’s completeness(single-copy, Duplicated, fragmented, missing), this file gives a snapshot of the overall quality of the genome assembly.
+* 'full_table.tsv': this file gives a detailed information about each ortholog.
+
+We can do a quick plot for short_summary.txt file by 'generate_plot.py', this dependancies are installed with BUSCO by miniconda, we won’t install it.
+
+    #make new directory called 'Busco-summaries' and copy short-summary.txt file from each run
+    mkdir Busco-summaries
+
+    #searching for 'generate_plot.py' file, this
+    find / -name "generate_plot.py"
+
+    #creating the plot, make sure that after '-wd' you should put directories not files(full path to the short-summary file)
+    python3 generate_plot.py -wd Busco-summaries
+
+![busco_figure](https://github.com/user-attachments/assets/1647096b-7e71-4e77-a15e-a3cebea93b47)
+
+
+
 
     
 
