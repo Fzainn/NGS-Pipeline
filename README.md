@@ -525,9 +525,10 @@ Involving identyfing and characterizing genetic variants in DNA sequence data. a
     zcat evol1.freebayes.vcf.gz | vcffilter -f "QUAL > 1 & AO > 0 & QUAL / AO > 10 & SAF > 0 & SAR > 0 & RPR > 1 & RPL > 1" | bgzip > evol1.freebayes.filtered.vcf.gz
 
 
-##Genome Annotation
+## Genome Annotation
 Will use BUSCO (Benchmarking Universal Single-Copy Orthologs) is a tool that helps you assess the quality of your genome annotation. It does this by looking for specific genes that are expected to be present in all organisms of a particular group. [read more about it](https://busco.ezlab.org/busco_userguide.html). then we will use 'Agustus' that uses a combination of computational and statistical methods to predict the locations of genes within a DNA sequence. It is a popular tool for gene prediction in eukaryotic organisms[Augustus](https://bioinf.uni-greifswald.de/augustus/).
-*Why busco is important?* 
+
+*Why busco is important?*
     * As it is identifying missing genes, check if the important genes are present or not by flagging them.
     * check fragmentation, if the genes are broken into pieces.
     * Evaluate annotation quality, gives quantitative measure of how complete and accurate your annotation is.
@@ -563,6 +564,19 @@ We can do a quick plot for short_summary.txt file by 'generate_plot.py', this de
     python3 generate_plot.py -wd Busco-summaries
 
 ![busco_figure](https://github.com/user-attachments/assets/1647096b-7e71-4e77-a15e-a3cebea93b47)
+
+The total number of complete BUSCOs are 123 of the expected Ortholog genes were found in the assembly:
+
+* all 123 are single-copy, only one copy of each gene was found
+* no duplicated
+* 1 fragmented was found
+* no missed.
+
+## Augustus
+for gene prediction we will use Augustus, which will implement hidden markov model for predection depends on the present state, which is in this case gene assembly [more knowledge about HMM](https://www.sciencedirect.com/topics/materials-science/markov-model)
+
+
+
 
 
 
