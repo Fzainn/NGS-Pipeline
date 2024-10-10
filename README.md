@@ -592,10 +592,35 @@ for gene prediction we will use Augustus, which will implement hidden markov mod
      prokka --kingdom Bacteria --genus Escherichia --species coli --outdir annotation assemblyRef/scaffolds.fasta
 
 ## Assembly Viewer
-we will use IGV for view assembly, SVs(vcf file), and genome annotation(gff)
+we will use IGV for view assembly, SVs(vcf file), and genome annotation(gff). you can open it from terminal as the following commands, or use it from web browser.
 
     #install igv
     conda install --yes igv
+
+    #open igv
+    igv
+
+
+## IGV 
+we will use igv web browser[here](https://igv.org/app/).
+*Brief steps:* [IGV USER GUIDE](https://igv.org/doc/webapp/#UserGuide/#loading-data-tracks)
+
+* Navigate to the genome menue to load reference genome(scaffolds.fasta) and nd its corresponding index file (.fai) 
+* drop down tracks menue to load SVs file(vcf) and genome annotation file(gff/gtf)
+
+Here is an important question, why we load vcf and gff files?
+*Vcf* file contains structural variants informations( SNPs, insertions, deletions, etc.) it allows to show where genetic occur across the genome and this is useful for mutations, disease associations or evolutionary changes. it help in understanding how the genome differs from the reference genome and which mutations can be significant.
+
+*GFF* describs the locations of the genes and other genomic features in the reference genome.
+Loading both of them is advantageous for integrative view, the combination of vcf and gff allows to visualize where mutations occur in relation to genes and other functional elements, without the annotation file(gff/gtf) it would be diffecult to know whether a variants affects a gene, exon, intron or intergenic region.
+
+![igv-app (1)](https://github.com/user-attachments/assets/ee8b8ec6-8aef-4945-8326-0995dfd56a5d)
+![igv-app (2)](https://github.com/user-attachments/assets/c6c7fd2c-50d7-4f59-837f-dd55c2702a10)
+
+*There are number of SNPs and insertions are detected*
+
+
+  
 
     
 
