@@ -601,7 +601,7 @@ we will use IGV for view assembly, SVs(vcf file), and genome annotation(gff). yo
     igv
 
 
-## IGV 
+## Findings and Results with IGV 
 we will use igv web browser[here](https://igv.org/app/).
 *Brief steps:* [IGV USER GUIDE](https://igv.org/doc/webapp/#UserGuide/#loading-data-tracks)
 
@@ -618,6 +618,8 @@ Loading both of them is advantageous for integrative view, the combination of vc
 ![igv-app (2)](https://github.com/user-attachments/assets/c6c7fd2c-50d7-4f59-837f-dd55c2702a10)
 
 *There are number of SNPs and insertions are detected*
+
+
 
 
   
