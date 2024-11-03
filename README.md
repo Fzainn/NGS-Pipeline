@@ -622,7 +622,7 @@ Loading both of them is advantageous for integrative view, the combination of vc
 ![igv-app (3)](https://github.com/user-attachments/assets/f32adc48-3644-4fd2-8757-137679180dcf)
 *Also number of SNPs are detected in vcf file where quality score ≥ 30*
 
-[You can download Dataset from here](https://github.com/sschmeier/genomics/blob/master/source/downloads.rst#)
+[Source of Dataset](https://github.com/sschmeier/genomics/blob/master/source/downloads.rst#)
 
 
 ## Conclusion
