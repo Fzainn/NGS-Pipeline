@@ -602,7 +602,7 @@ we will use IGV for view assembly, SVs(vcf file), and genome annotation(gff). yo
 
 
 ## Findings and Results with IGV 
-we will use igv web browser[here](https://igv.org/app/).
+we will use igv web browser [here](https://igv.org/app/).
 *Brief steps:* [IGV USER GUIDE](https://igv.org/doc/webapp/#UserGuide/#loading-data-tracks)
 
 * Navigate to the genome menue to load reference genome(scaffolds.fasta) and nd its corresponding index file (.fai) 
@@ -622,12 +622,12 @@ Loading both of them is advantageous for integrative view, the combination of vc
 ![igv-app (3)](https://github.com/user-attachments/assets/f32adc48-3644-4fd2-8757-137679180dcf)
 *Also number of SNPs are detected in vcf file where quality score ≥ 30*
 
-(You can download Dataset from here)[https://github.com/sschmeier/genomics/blob/master/source/downloads.rst#]
+[You can download Dataset from here](https://github.com/sschmeier/genomics/blob/master/source/downloads.rst#)
 
 
 ## Conclusion
 We here report NGS pipeline analyzing E.coli dataset, navigating through meticulous quality checks, precise alignments and robust variant discovery. Designed for streamlined efficiency which find out bundle of SVs most of them are SNPs, opening up a pathway for deeper insights into genetic variation. The discovered SNPs hold potential for understanding antibiotic resistance, evolutionary adaptations, and metabolic pathways.
-# Future Directions To extend the impact of this work, several questions arise for further analysis:
+### Future Directions To extend the impact of this work, several questions arise for further analysis:
 
 * Which identified SNPs correlate with antibiotic resistance mechanisms in E. coli?
 * How do these SNPs differ among diverse E. coli strains or environments?
