@@ -627,7 +627,7 @@ Loading both of them is advantageous for integrative view, the combination of vc
 
 ## Conclusion
 We here report NGS pipeline analyzing E.coli dataset, navigating through meticulous quality checks, precise alignments and robust variant calling. Designed for streamlined efficiency which find out bundle of SVs most of them are SNPs, opening up a pathway for deeper insights into genetic variation. The discovered SNPs hold potential for understanding antibiotic resistance, evolutionary adaptations, and metabolic pathways.
-*##### Future Directions To extend the impact of this work, several questions arise for further analysis:*
+##### Future Directions To extend the impact of this work, several questions arise for further analysis:
 
 * Which identified SNPs correlate with antibiotic resistance mechanisms in E. coli?
 * How do these SNPs differ among diverse E. coli strains or environments?
