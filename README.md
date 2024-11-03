@@ -618,12 +618,22 @@ Loading both of them is advantageous for integrative view, the combination of vc
 ![igv-app (2)](https://github.com/user-attachments/assets/c6c7fd2c-50d7-4f59-837f-dd55c2702a10)
 
 *There are number of SNPs and insertions are detected*
-
-Also number of SNPs are detected in vcf file where quality score ≥ 30 
+ 
 ![igv-app (3)](https://github.com/user-attachments/assets/f32adc48-3644-4fd2-8757-137679180dcf)
+*Also number of SNPs are detected in vcf file where quality score ≥ 30*
+
+(You can download Dataset from here)[https://github.com/sschmeier/genomics/blob/master/source/downloads.rst#]
 
 
 ## Conclusion
+We here report NGS pipeline analyzing E.coli dataset, navigating through meticulous quality checks, precise alignments and robust variant discovery. Designed for streamlined efficiency which find out bundle of SVs most of them are SNPs, opening up a pathway for deeper insights into genetic variation. The discovered SNPs hold potential for understanding antibiotic resistance, evolutionary adaptations, and metabolic pathways.
+# Future Directions To extend the impact of this work, several questions arise for further analysis:
+
+* Which identified SNPs correlate with antibiotic resistance mechanisms in E. coli?
+* How do these SNPs differ among diverse E. coli strains or environments?
+* Could specific SNPs influence virulence or metabolic function?
+* Are there SNPs linked to newly discovered virulence factors impacting public health?
+    
 
 
 
