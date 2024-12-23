@@ -1,5 +1,5 @@
-## NGS-Pipeline
-Next generation sequencing workflow pipline, this documentation outlines the steps involved in NGS analysis workflow from data acquisition to final visualization and interpretation step by step.
+## NGS 
+Next generation sequencing, this documentation outlines the steps involved in NGS analysis workflow from data acquisition to final visualization and interpretation step by step.
 
 ## Next generation sequencing with definitions and file formats
 NGS it is a technology for determining the sequence of DNA or RNA to study the genetic variation associated with diseases, it is a sequencing method where millions of sequencing reactions are carried out in parallel, produces massive number of sequences from a single cell in a short period of time.
@@ -626,7 +626,7 @@ Loading both of them is advantageous for integrative view, the combination of vc
 
 
 ## Conclusion
-We here report NGS pipeline analyzing E.coli dataset, navigating through meticulous quality checks, precise alignments and robust variant calling. Designed for streamlined efficiency which find out bundle of SVs most of them are SNPs, opening up a pathway for deeper insights into genetic variation. The discovered SNPs hold potential for understanding antibiotic resistance, evolutionary adaptations, and metabolic pathways.
+We here report NGS pipeline analyzing E.coli dataset, navigating through meticulous quality checks, precise alignments and robust variant calling. Designed for streamlined efficiency which find out bundle SNPs, opening up a pathway for deeper insights into genetic variation. The discovered SNPs hold potential for understanding antibiotic resistance, evolutionary adaptations, and metabolic pathways.
 ##### Future Directions To extend the impact of this work, several questions arise for further analysis:
 
 * Which identified SNPs correlate with antibiotic resistance mechanisms in E. coli?
